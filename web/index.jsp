@@ -1,34 +1,12 @@
-<%@page import="java.util.Locale"%>
+
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
-<%@page import="br.com.itfox.beans.Member"%>
-<%@page import="br.com.itfox.utils.Utils"%>
-<%@page import="br.com.itfox.beans.CollectionColumns"%>
-<%@page import="br.com.itfox.beans.MemberAreaOper"%>
+
 <%@page import="java.util.List"%>
-<%@page import="br.com.itfox.business.BusinessDelegate"%>
-<%@page import="br.com.itfox.config.Preferences"%>
-<jsp:include page="incLogin.jsp" />
-<%
-int memberId=0;
-Member m = new Member();
-if(session.getAttribute("userid")!=null){
-    memberId = (int) session.getAttribute("userid");
-    m = (Member) session.getAttribute("member");
-}else{
-    // New location to be redirected
-%>
-<jsp:forward page="login.jsp" /> 
-<%
-   String site = new String("login.jsp");
-   response.setStatus(response.SC_MOVED_TEMPORARILY);
-   response.setHeader("Location", site); 
-}
-if(memberId==0){
-    response.sendRedirect("login.jsp");
-}
-%>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +14,7 @@ if(memberId==0){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><%=Preferences.title%></title>
+    <title>Boutique Cellars - ECommerce </title>
 
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta name="keywords" content="Template, html, premium, themeforest" />
@@ -161,10 +139,10 @@ if(memberId==0){
         </div>
         <div class="footer">
             <div class="pull-right">
-                <%=Preferences.copyrightRight%>
+              
             </div>
             <div>
-                <%=Preferences.copyright%> <%=Preferences.copyrightYear%>
+               
             </div>
         </div>
 
