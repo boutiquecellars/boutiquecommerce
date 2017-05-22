@@ -5,22 +5,28 @@
 --%>
 
 
-<nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                    <!--
-                    <form role="search" class="navbar-form-custom" method="post" action="#">
-                        <div class="form-group">
-                            <input type="text" placeholder="..." class="form-control" name="top-search" id="top-search">
-                        </div>
-                    </form>-->
+<div class="navbar-before mobile-hidden navbar-before-inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="navbar-before-sign">Everything You Need is theBox</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="nav navbar-nav navbar-right navbar-right-no-mar">
+                            <li><a href="#">About Us</a>
+                            </li>
+                            <li><a href="#">Blog</a>
+                            </li>
+                            <li><a href="#">Contact Us</a>
+                            </li>
+                            <li><a href="#">FAQ</a>
+                            </li>
+                            <li><a href="#">Wishlist</a>
+                            </li>
+                            <li><a href="#">Help</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <ul class="nav navbar-top-links navbar-right">
-                    <li>
-                        <a href="logout.jsp">
-                            <i class="fa fa-sign-out"></i> Log out
-                        </a>
-                    </li>
-                </ul>
-
-            </nav>
+            </div>
+        </div>

@@ -1,22 +1,10 @@
-
-<%@page import="java.text.DateFormat"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Calendar"%>
-
-<%@page import="java.util.List"%>
-
-
-
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Boutique Cellars - ECommerce </title>
-
+    <title>the box - Index nav layout 4</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding" >
     <meta name="keywords" content="Template, html, premium, themeforest" />
     <meta name="description" content="TheBox - premium e-commerce template">
     <meta name="author" content="Tsoy">
@@ -30,190 +18,804 @@
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/mystyles.css">
-    <style >
-      </style>
+    <style>
+    #map {
+        height: 475px; 
+       min-width: 1024px;
+        width:100% !important;
+        background-color:orange;
+      }
+	</style>
 
 </head>
 
-<body class="fixed-sidebar">
-    
-    <!--
-    <div class="modal fade" tabindex="-1" role="dialog" id="myModal2" aria-hidden="true" >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">PRINCIPAL COMPRADOR</h4>
-            </div>
-            <div class="modal-body" id="modal-body">
-              <p>- y&hellip;</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-    </div>
-    -->
-    
-    <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content animated flipInY">
-                <div class="modal-header">
-                    <h4 class="modal-title">LISTA DE VEÍCULOS DOS PRINCIPAIS COMPRADORES</h4>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fechar</span></button>
-                    
+<body>
+    <div class="global-wrapper clearfix" id="global-wrapper">
+        <!-- include Navbar Static Top -->
+        <jsp:include page="incNavbarStaticTop.jsp">
+            <jsp:param name="page" value="index" />
+        </jsp:include>
+        <!-- // include Navbar Static Top -->
+        <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-login-dialog">
+            <h3 class="widget-title">Member Login</h3>
+            <p>Welcome back, friend. Login to get started</p>
+            <hr />
+            <form>
+                <div class="form-group">
+                    <label>Email or Username</label>
+                    <input class="form-control" type="text" />
                 </div>
-               
-                <div class="modal-body"  id="modal-body">
-                    <h4 class="modal-title"></h4>
-                    <small class="font-bold">Processando ...</small>
-                    <div class="spiner-example">
-                        <div class="sk-spinner sk-spinner-wave">
-                            <div class="sk-rect1"></div>
-                            <div class="sk-rect2"></div>
-                            <div class="sk-rect3"></div>
-                            <div class="sk-rect4"></div>
-                            <div class="sk-rect5"></div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input class="form-control" type="text" />
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input class="i-check" type="checkbox" />Remeber Me</label>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Sign In" />
+            </form>
+            <div class="gap gap-small"></div>
+            <ul class="list-inline">
+                <li><a href="#nav-account-dialog" class="popup-text">Not Member Yet</a>
+                </li>
+                <li><a href="#nav-pwd-dialog" class="popup-text">Forgot Password?</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-account-dialog">
+            <h3 class="widget-title">Create TheBox Account</h3>
+            <p>Ready to get best offers? Let's get started!</p>
+            <hr />
+            <form>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" type="text" />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input class="form-control" type="text" />
+                </div>
+                <div class="form-group">
+                    <label>Repeat Password</label>
+                    <input class="form-control" type="text" />
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input class="form-control" type="text" />
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input class="i-check" type="checkbox" />Subscribe to the Newsletter</label>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Create Account" />
+            </form>
+            <div class="gap gap-small"></div>
+            <ul class="list-inline">
+                <li><a href="#nav-login-dialog" class="popup-text">Already Memeber</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-pwd-dialog">
+            <h3 class="widget-title">Password Recovery</h3>
+            <p>Enter Your Email and We Will Send the Instructions</p>
+            <hr />
+            <form>
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input class="form-control" type="text" />
+                </div>
+                <input class="btn btn-primary" type="submit" value="Recover Password" />
+            </form>
+        </div>
+        
+        <!-- include Navbar First -->
+        <jsp:include page="incNavbarFirst.jsp">
+            <jsp:param name="page" value="index" />
+        </jsp:include>
+        <!-- // include Navbar First -->
+        
+        <!-- include Navbar Default -->
+        <jsp:include page="incNavbarDefault.jsp">
+            <jsp:param name="page" value="index" />
+        </jsp:include>
+        <!-- // include Navbar Default -->
+
+        <div class="owl-carousel owl-loaded owl-nav-dots-inner" data-options='{"items":1,"loop":true}'>
+            <div class="owl-item">
+                <div class="slider-item" style="background-color:#3D3D3D;">
+                    <div class="container">
+                        <div class="slider-item-inner">
+                            <div class="slider-item-caption-left slider-item-caption-white">
+                                <h4 class="slider-item-caption-title">Save up to $150 on Your Next Laptop</h4>
+                                <p class="slider-item-caption-desc">I'm Not Gonna Pay A Lot For This Laptop.</p><a class="btn btn-lg btn-ghost btn-white" href="#">Shop Now</a>
+                            </div>
+                            <img class="slider-item-img-right" src="img/test_slider/1-i.png" alt="Image Alternative text" title="Image Title" style="top: 60%; width: 56%;" />
                         </div>
                     </div>
-                </div> 
-                
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-white" data-dismiss="modal">Fechar</button>
-                    <!--
-                   <button type="button" class="btn btn-primary">Continuar</button> 
-                    -->
                 </div>
-                
             </div>
-        </div>
-    </div>
-   
-
-<div id="wrapper">
-     <%
-   String paramPrint = request.getParameter("print");
-   String printStyle = "";
-   if(paramPrint==null){
-   %>
-    <jsp:include page="incNavSide.jsp">
-        <jsp:param name="page" value="index" />
-    </jsp:include>
-    <%
-   }else{
-       printStyle="margin:0;";
-   }
-    %>
-    
-    
-
-    <div id="page-wrapper" class="gray-bg" style="<%=printStyle%>">
-        <div class="row border-bottom">
-             <jsp:include page="incNavbarStaticTop.jsp" />
-        </div>
-        <div class="wrapper wrapper-content animated fadeInRight">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center m-t-lg">
-                        <h1>
-                            BOUTIQUE CELLARS WINE SELECTION
-                            
-                        </h1>
-                        <small id="small">
-                           
-                           <br/><br/><br/><br/>
-                        </small>
-                    </div>
-                    <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
-                    <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
-                        <h1 id="progress-report-title">Gerando Arquivo de Clientes, Aguarde!</h1>
-                        <p id="progress-report">Lista de arquivos para enriquecer.</p>
+            <div class="owl-item">
+                <div class="slider-item" style="background-image:url(img/1200x500.png);">
+                    <div class="container">
+                        <div class="slider-item-inner">
+                            <div class="slider-item-caption-right slider-item-caption-white">
+                                <h4 class="slider-item-caption-title">World Top Guitars from $350</h4>
+                                <p class="slider-item-caption-desc">Fill It To The Rim With Guitar.</p><a class="btn btn-lg btn-ghost btn-white" href="#">Shop Now</a>
+                            </div>
+                            <img class="slider-item-img-left" src="img/test_slider/2-i.png" alt="Image Alternative text" title="Image Title" style="transform:translateY(-50%) rotate(14deg); width: 55%;" />
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            
-            
-        </div>
-        <div class="footer">
-            <div class="pull-right">
-              
+            <div class="owl-item">
+                <div class="slider-item" style="background-color:#93282B;">
+                    <div class="container">
+                        <div class="slider-item-inner">
+                            <div class="slider-item-caption-left slider-item-caption-white">
+                                <h4 class="slider-item-caption-title">Run! Run! Run!</h4>
+                                <p class="slider-item-caption-desc">Your Running Shoes, Right Away.</p><a class="btn btn-lg btn-ghost btn-white" href="#">Shop Now</a>
+                            </div>
+                            <img class="slider-item-img-right" src="img/test_slider/3-i.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-               
+        </div>
+        <div class="gap"></div>
+        <div class="container">
+            <div class="row" data-gutter="15">
+                <div class="col-md-4">
+                    <div class="banner" style="background-color:#83599A;">
+                        <a class="banner-link" href="#"></a>
+                        <div class="banner-caption-top-left">
+                            <h5 class="banner-title">Backpack Collection</h5>
+                            <p class="banner-desc">Don't Be Vague. Ask for Backpack .</p>
+                            <p class="banner-shop-now">Shop Now <i class="fa fa-caret-right"></i>
+                            </p>
+                        </div>
+                        <img class="banner-img" src="img/test_banner/1-i.png" alt="Image Alternative text" title="Image Title" style="bottom: -8px; right: -32px;" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="banner" style="background-color:#EF4D9C;">
+                        <a class="banner-link" href="#"></a>
+                        <div class="banner-caption-top-right">
+                            <h5 class="banner-title">Best 2015 Tablets</h5>
+                            <p class="banner-desc">Double the Pleasure, Double the Tablets.</p>
+                            <p class="banner-shop-now">Shop Now <i class="fa fa-caret-right"></i>
+                            </p>
+                        </div>
+                        <img class="banner-img" src="img/test_banner/2-i.png" alt="Image Alternative text" title="Image Title" style="bottom: -22px; left: 0; width: 235px;" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="banner" style="background-color:#FEA92E;">
+                        <a class="banner-link" href="#"></a>
+                        <div class="banner-caption-bottom-left">
+                            <h5 class="banner-title">Top Glasses</h5>
+                            <p class="banner-desc">My Goodness, My Glasses!</p>
+                            <p class="banner-shop-now">Shop Now <i class="fa fa-caret-right"></i>
+                            </p>
+                        </div>
+                        <img class="banner-img" src="img/test_banner/3-i.png" alt="Image Alternative text" title="Image Title" style="top: -4px; right: -15px; width: 220px;" />
+                    </div>
+                </div>
+            </div>
+            <div class="gap"></div>
+            <h3 class="widget-title-lg">Weekly Featured</h3>
+            <div class="row" data-gutter="15">
+                <div class="col-md-4">
+                    <div class="product ">
+                        <ul class="product-labels"></ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">PUMA Faas 700 v2 Women's Running Shoes</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-new">$138</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product ">
+                        <ul class="product-labels">
+                            <li>-20%</li>
+                        </ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">Military Shoulder Tactical Backpack Rucksacks Sport Travel Hiking Trekking Bag</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-old">$80</span><span class="product-caption-price-new">$64</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product ">
+                        <ul class="product-labels"></ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">Apple iPhone 4S 16GB Factory Unlocked Black and White Smartphone</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-new">$125</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>2 left</li>
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-gutter="15">
+                <div class="col-md-3">
+                    <div class="product ">
+                        <ul class="product-labels">
+                            <li>-60%</li>
+                            <li>stuff pick</li>
+                        </ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">Cobra Fly-Z Mens Golf Driver - 6 Colors - 4 Flex Options - Right Hand - 2015</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-old">$75</span><span class="product-caption-price-new">$30</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product ">
+                        <ul class="product-labels"></ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">Hamilton Beach 49996 FlexBrew Single-Serve Coffeemaker with Removable Reservoir</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-new">$50</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>2 left</li>
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product ">
+                        <ul class="product-labels">
+                            <li>hot</li>
+                        </ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">72 Sq Ft Black Foam Interlocking Exercise Protective Tile Flooring Gym Floor Mat</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-new">$62</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product ">
+                        <ul class="product-labels"></ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">Barnett 78649 Recruit Youth 100# Crossbow Package With Red Dot Sight Pink</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-new">$55</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>3 left</li>
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" data-gutter="15">
+                <div class="col-md-3">
+                    <div class="product product-sm-left ">
+                        <ul class="product-labels"></ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">Timex Women's | Elevated Classics Swarovski Crystals Black Strap | Watch T2N450</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-new">$71</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product product-sm-left ">
+                        <ul class="product-labels"></ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">New Asus X551MAV 15.6" HD N2830 2.16GHz 4GB 500GB Windows 8 Laptop Notebook</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-old">$89</span><span class="product-caption-price-new">$72</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product product-sm-left ">
+                        <ul class="product-labels"></ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">LG G Flex D959 - 32GB - Titan Silver GSM Unlocked Android Smartphone (B)</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-old">$52</span><span class="product-caption-price-new">$16</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product product-sm-left ">
+                        <ul class="product-labels"></ul>
+                        <div class="product-img-wrap">
+                            <img class="product-img" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                        <a class="product-link" href="#"></a>
+                        <div class="product-caption">
+                            <ul class="product-caption-rating">
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li class="rated"><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <h5 class="product-caption-title">PU Leather Tub Club Barrel Design Chair Room Seat Contemporary ArmChair</h5>
+                            <div class="product-caption-price"><span class="product-caption-price-new">$95</span>
+                            </div>
+                            <ul class="product-caption-feature-list">
+                                <li>5 left</li>
+                                <li>Free Shipping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gap"></div>
+            <h3 class="widget-title-lg">&nbsp;</h3>
+        </div>
+        <div class="gap"></div>
+        <div class="slider-item-sm" style="background-image:url(img/1200x500.png);">
+            <div class="slider-item-mask"></div>
+            <div class="container">
+                <div class="slider-item-inner">
+                    <div class="slider-item-caption-right slider-item-caption-white">
+                        <h4 class="slider-item-caption-title">Trips To Paris Just from $99</h4>
+                        <p class="slider-item-caption-desc">Make Someone Happy with a Paris.</p><a class="btn btn-lg btn-ghost btn-white" href="#">Shop Now</a>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="gap"></div>
+        <div class="container">
+            <h3 class="widget-title-lg">&nbsp;</h3>
+        </div>
+        <div class="gap"></div>
+        <div class="slider-item-sm" style="background-color:#E66514;">
+            <div class="container">
+                <div class="slider-item-inner">
+                    <div class="slider-item-caption-left slider-item-caption-white">
+                    <div id="map"></div>
+                        <h4 class="slider-item-caption-title">Time to Upgrade Your Smartphone</h4>
+                        <p class="slider-item-caption-desc">It's Smartphone Time.</p><a class="btn btn-lg btn-ghost btn-white" href="#">Shop Now</a>
+                    </div>
+                    <img class="slider-item-img" src="img/test_slider/7-i.png" alt="Image Alternative text" title="Image Title" style="right: 0; bottom: 0; width: 22%;" />
+                </div>
+            </div>
+        </div>
+        <div class="gap"></div>
+        <div class="container">
+            <h3 class="widget-title-lg">Shop by Category</h3>
+            <div class="row row-sm-gap" data-gutter="15">
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Home & Garden</h5>
+                        <p class="banner-category-desc">167 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Jewelry</h5>
+                        <p class="banner-category-desc">609 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Toy & Kids</h5>
+                        <p class="banner-category-desc">523 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Electronics</h5>
+                        <p class="banner-category-desc">603 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Clothes & Shoes</h5>
+                        <p class="banner-category-desc">200 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Sports</h5>
+                        <p class="banner-category-desc">190 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Entertaiment</h5>
+                        <p class="banner-category-desc">528 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Travel</h5>
+                        <p class="banner-category-desc">202 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Art & Design</h5>
+                        <p class="banner-category-desc">431 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Motors</h5>
+                        <p class="banner-category-desc">396 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Tools</h5>
+                        <p class="banner-category-desc">203 products</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="banner-category" href="#">
+                        <img class="banner-category-img" src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                        <h5 class="banner-category-title">Hobbies & DIY</h5>
+                        <p class="banner-category-desc">628 products</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="gap"></div>
 
+        <footer class="main-footer">
+            <div class="container">
+                <div class="row row-col-gap" data-gutter="60">
+                    <div class="col-md-3">
+                        <h4 class="widget-title-sm">TheBox Shop</h4>
+                        <p>Rutrum gravida interdum vehicula natoque massa aliquet ante rutrum lectus quis curabitur</p>
+                        <ul class="main-footer-social-list">
+                            <li>
+                                <a class="fa fa-facebook" href="#"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-twitter" href="#"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-pinterest" href="#"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-instagram" href="#"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-google-plus" href="#"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="widget-title-sm">Popular Tags</h4>
+                        <ul class="main-footer-tag-list">
+                            <li><a href="#">New Season</a>
+                            </li>
+                            <li><a href="#">Watches</a>
+                            </li>
+                            <li><a href="#">woman</a>
+                            </li>
+                            <li><a href="#">classic</a>
+                            </li>
+                            <li><a href="#">modern</a>
+                            </li>
+                            <li><a href="#">blue</a>
+                            </li>
+                            <li><a href="#">shoes</a>
+                            </li>
+                            <li><a href="#">running</a>
+                            </li>
+                            <li><a href="#">jeans</a>
+                            </li>
+                            <li><a href="#">sports</a>
+                            </li>
+                            <li><a href="#">laptops</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="widget-title-sm">Newsletter</h4>
+                        <form>
+                            <div class="form-group">
+                                <label>Sign up to the newsletter</label>
+                                <input class="newsletter-input form-control" placeholder="Your e-mail address" type="text" />
+                            </div>
+                            <input class="btn btn-primary" type="submit" value="Sign up" />
+                        </form>
+                    </div>
+                </div>
+                <ul class="main-footer-links-list">
+                    <li><a href="#">About Us</a>
+                    </li>
+                    <li><a href="#">Jobs</a>
+                    </li>
+                    <li><a href="#">Legal</a>
+                    </li>
+                    <li><a href="#">Support & Customer Service</a>
+                    </li>
+                    <li><a href="#">Blog</a>
+                    </li>
+                    <li><a href="#">Privacy</a>
+                    </li>
+                    <li><a href="#">Terms</a>
+                    </li>
+                    <li><a href="#">Press</a>
+                    </li>
+                    <li><a href="#">Shipping</a>
+                    </li>
+                    <li><a href="#">Payments & Refunds</a>
+                    </li>
+                </ul>
+                <img class="main-footer-img" src="img/test_footer2-i.png" alt="Image Alternative text" title="Image Title" />
+            </div>
+        </footer>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="copyright-text">Copyright &copy; <a href="#">TheBox</a> 2014. Designed my remtsoy. All rights reseved</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="payment-icons-list">
+                            <li>
+                                <img src="img/payment/visa-straight-32px.png" alt="Image Alternative text" title="Pay with Visa" />
+                            </li>
+                            <li>
+                                <img src="img/payment/mastercard-straight-32px.png" alt="Image Alternative text" title="Pay with Mastercard" />
+                            </li>
+                            <li>
+                                <img src="img/payment/paypal-straight-32px.png" alt="Image Alternative text" title="Pay with Paypal" />
+                            </li>
+                            <li>
+                                <img src="img/payment/visa-electron-straight-32px.png" alt="Image Alternative text" title="Pay with Visa-electron" />
+                            </li>
+                            <li>
+                                <img src="img/payment/maestro-straight-32px.png" alt="Image Alternative text" title="Pay with Maestro" />
+                            </li>
+                            <li>
+                                <img src="img/payment/discover-straight-32px.png" alt="Image Alternative text" title="Pay with Discover" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<!-- ITFOX scripts -->
-<script src="js/default.js"></script>
-<script src="js/componentTable.js"></script>
-<!-- Mainly scripts -->
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<!-- datepicker -->
-<!--
- <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
--->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/icheck.js"></script>
+    <script src="js/ionrangeslider.js"></script>
+    <script src="js/jqzoom.js"></script>
+    <script src="js/card-payment.js"></script>
+    <script src="js/owl-carousel.js"></script>
+    <script src="js/magnific.js"></script>
+    <script src="js/custom.js"></script>
 
- <script src="js/plugins/jquery-ui-1.11-2.4/jquery-ui.js"></script>
-
- <!--
-<script src="js/plugins/jquery-ui/jquery-ui.js"></script>
- -->
-<!-- Chartist -->
-<!--
- <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script> 
--->
- <script src="js/plugins/chartist-plugin/chartist.min.js"></script>
-<!--
- <script src="js/plugins/chartist/chartist.min.js"></script>
--->
- <!--
- <script src="js/plugins/chartist/chartist.min.js"></script> -->
- <script src="js/plugins/chartist/chartist-plugin-legend.js"></script>
- <script src="js/plugins/chartist/chartist-plugin-pointlabels.js"></script>
- <script src="js/plugins/chartist/chartist-plugin-tooltip.js"></script>
- <!-- Sparkline -->
- <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
- 
- <!-- Peity -->
-<script src="js/plugins/peity/jquery.peity.min.js"></script>
-<script src="js/demo/peity-demo.js"></script>
-
-
-<!-- Flot -->
-<script src="js/plugins/flot/jquery.flot.js"></script>
-
-<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-
-<!--
-<script src="js/plugins/flot/jquery.flot.tooltip.0.8.5.js"></script>
--->
-<script src="js/plugins/flot/jquery.flot.resize.js"></script>
-<script src="js/plugins/flot/jquery.flot.pie.js"></script>
-<script src="js/plugins/flot/jquery.flot.time.js"></script>
-
-
-<!-- Custom and plugin javascript -->
-<script src="js/inspinia.js"></script>
-<script src="js/plugins/pace/pace.js"></script>
-
-<!-- Flot demo data -->
-<script src="js/demo/flot-demo.js"></script>
-
-<!-- Magnific Popup - Lightbox & dialog modal -->
-<script src="js/plugins/magnific-popup/magnific-popup.1.0.0.js"></script>
-
+<script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaoGWM7-5GpC7qEP2CwdkqIhu-WEKSCyI&callback=initMap" async defer></script>
 
 
 
 </body>
 
 </html>
-
+ 
