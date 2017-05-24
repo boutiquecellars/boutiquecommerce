@@ -8,9 +8,9 @@
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
-                        <img src="img/logo.png" alt="Image Alternative text" title="Image Title" />
+                        <img src="img/logo-boutiquecellars.svg" alt="Image Alternative text" title="Image Title" />
                     </a>
-                </div>
+                </div><!--
                 <form class="navbar-form navbar-left navbar-main-search navbar-main-search-category" role="search">
                     <select class="navbar-main-search-category-select">
                         <option>All Departmens</option>
@@ -56,7 +56,7 @@
                         <input class="form-control" type="text" placeholder="Search the Entire Store..." />
                     </div>
                     <a class="fa fa-search navbar-main-search-submit" href="#"></a>
-                </form>
+                </form>-->
                 <ul class="nav navbar-nav navbar-right navbar-mob-item-left">
                     <li><a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text"><span >Hello, Sign in</span>Your Account</a>
                     </li>
