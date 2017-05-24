@@ -4,7 +4,7 @@
     Author     : belchiorpalma
 --%>
 
-<div class="slider-item-sm" style="background-image:url(img/1200x500.png);">
+<div class="slider-item-sm" style="background-image:url(img/images-home-grapes.jpg);">
             <div class="slider-item-mask"></div>
             <div class="container">
                 <div class="slider-item-inner">
@@ -20,7 +20,7 @@
             <h3 class="widget-title-lg">&nbsp;</h3>
         </div>
         <div class="gap"></div>
-        <div class="slider-item-sm" style="background-color:#E66514;">
+        <div class="slider-item-sm" style="background-image:url(img/bg-footer.jpg);">
             <div class="container">
                 <div class="slider-item-inner">
                     <div class="slider-item-caption-left slider-item-caption-white">
