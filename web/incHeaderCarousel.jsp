@@ -6,7 +6,7 @@
 
 <div class="owl-carousel owl-loaded owl-nav-dots-inner" data-options='{"items":1,"loop":true}'>
             <div class="owl-item">
-                <div class="slider-item" style="background-image:url(img/image-home-vineyeards.jpg);">
+                <div class="slider-item">
                     <div class="container">
                         <div class="slider-item-inner">
                             <div class="slider-item-caption-left slider-item-caption-white">
