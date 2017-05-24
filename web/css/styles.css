@@ -329,6 +329,7 @@ hr {
   border-radius: 0;
   position: relative;
   z-index: 10;
+  height: 80px
 }
 @media (min-width:992px) {
   .navbar-main-white .dropdown:hover > .dropdown-menu {
@@ -4714,6 +4715,7 @@ header.main {
 }
 .yamm .container {
   position: relative;
+  padding-top: 18px;
 }
 .yamm .dropdown-menu {
   left: auto;
