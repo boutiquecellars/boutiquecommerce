@@ -288,7 +288,7 @@ hr {
 .navbar-before .navbar-nav > li > a {
   font-size: 12px;
   padding: 0;
-  color: #fff;
+  color: #777;
 }
 .navbar-before .navbar-nav > li > a:hover {
   background: none;
@@ -299,7 +299,7 @@ hr {
   }
 }
 .navbar-before-inverse {
-  background: #486d97;
+  background: #f1efee;
 }
 .navbar-before-sign {
   margin-bottom: 0;
