@@ -5684,7 +5684,7 @@ undefinedundefined.owl-height {
   -webkit-tap-highlight-color: transparent;
   position: relative;
   z-index: 1;
-  background-image:url(img/image-home-vineyeards.jpg)
+  background-image:url(img/image-home-vineyeards.jpg)!important;
 }
 .owl-carousel-curved {
   -webkit-border-radius: 5px;
