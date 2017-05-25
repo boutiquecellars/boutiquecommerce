@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="owl-item">
-                <div class="slider-item" style="background-image:url(img/image-home-vineyeards.jpg);">
+                <div class="slider-item">
                     <div class="container">
                         <div class="slider-item-inner">
                             <div class="slider-item-caption-right slider-item-caption-white">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="owl-item">
-                <div class="slider-item" style="background-color:#93282B;">
+                <div class="slider-item">
                     <div class="container">
                         <div class="slider-item-inner">
                             <div class="slider-item-caption-left slider-item-caption-white">
