@@ -28,4 +28,16 @@
                         <!--<img class="banner-img" src="img/test_banner/3-i.png" alt="Image Alternative text" title="Image Title" style="top: -4px; right: -15px; width: 220px;" />-->
                     </div>
                 </div>
+                <div class="col-md-2">
+                    <div class="banner" style="background-image:url(img/logos-wineries/gvaot.png)!important;">
+                        <a class="banner-link" href="#"></a>
+                        <!--<img class="banner-img" src="img/test_banner/3-i.png" alt="Image Alternative text" title="Image Title" style="top: -4px; right: -15px; width: 220px;" />-->
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="banner" style="background-image:url(img/logos-wineries/jerusalem.png)!important;">
+                        <a class="banner-link" href="#"></a>
+                        <!--<img class="banner-img" src="img/test_banner/3-i.png" alt="Image Alternative text" title="Image Title" style="top: -4px; right: -15px; width: 220px;" />-->
+                    </div>
+                </div>
             </div>
