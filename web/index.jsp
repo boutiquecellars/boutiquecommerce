@@ -105,11 +105,11 @@
             </jsp:include>
         <!-- // include Slider -->   
         <!-- include Shop By Category -->
-            <jsp:include page="incShopByCategory.jsp">
+        <%--<jsp:include page="incShopByCategory.jsp">
                 <jsp:param name="page" value="index" />
-            </jsp:include>
+            </jsp:include> --%>
          <!-- //include Shop By Category -->  
-        <div class="gap"></div>
+ 
         <!-- include Footer -->
             <jsp:include page="incFooter.jsp">
                 <jsp:param name="page" value="index" />

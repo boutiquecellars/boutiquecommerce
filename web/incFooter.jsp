@@ -88,6 +88,6 @@
                     <li><a href="#">Payments & Refunds</a>
                     </li>
                 </ul>
-                <img class="main-footer-img" src="img/test_footer2-i.png" alt="Image Alternative text" title="Image Title" />
+                <img class="main-footer-img" src="" alt="" title="Image Title" />
             </div>
         </footer>

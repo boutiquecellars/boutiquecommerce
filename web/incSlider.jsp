@@ -24,11 +24,9 @@
             <div class="container">
                 <div class="slider-item-inner">
                     <div class="slider-item-caption-left slider-item-caption-white">
-                    <div id="map"></div>
-                        <h4 class="slider-item-caption-title">Time to Upgrade Your Smartphone</h4>
-                        <p class="slider-item-caption-desc">It's Smartphone Time.</p><a class="btn btn-lg btn-ghost btn-white" href="#">Shop Now</a>
+                      <div id="map"></div>
                     </div>
-                    <img class="slider-item-img" src="img/test_slider/7-i.png" alt="Image Alternative text" title="Image Title" style="right: 0; bottom: 0; width: 22%;" />
+                    <img class="slider-item-img" src="" alt="Image Alternative text" title="Image Title" style="right: 0; bottom: 0; width: 22%;" />
                 </div>
             </div>
         </div>

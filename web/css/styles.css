@@ -1075,7 +1075,7 @@ hr {
 }
 .slider-item,
 .slider-item-sm {
-  height: 500px;
+  height: 700px;
   position: relative;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1144,7 +1144,7 @@ hr {
 .slider-item-img-left,
 .slider-item-img-right {
   width: 45%;
-  top: 50%;
+  top: 40%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -o-transform: translateY(-50%);
@@ -3908,7 +3908,7 @@ header.main {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  width:100% !important
+  width:180px
 }
 .banner-title {
   font-size: 25px;
