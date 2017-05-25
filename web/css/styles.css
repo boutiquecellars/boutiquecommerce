@@ -3899,15 +3899,16 @@ header.main {
 /****** Banners ******/
 .banner {
   color: #fff;
-  height: 200px;
+  height: 188px;
   position: relative;
   -webkit-border-radius: 6px;
-  border-radius: 6px;
+  border-radius:50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  width:100% !important
 }
 .banner-title {
   font-size: 25px;
