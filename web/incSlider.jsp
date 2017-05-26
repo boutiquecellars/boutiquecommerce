@@ -20,7 +20,7 @@
             <h3 class="widget-title-lg">&nbsp;</h3>
         </div>
         <div class="gap"></div>
-        <div class="slider-item-sm" style="background-image:url(img/bg-footer.jpg);">
+        <div class="slider-item-sm">
             <div class="container">
                 <div class="slider-item-inner">
                     <div class="slider-item-caption-left slider-item-caption-white">
@@ -30,4 +30,3 @@
                 </div>
             </div>
         </div>
-        <div class="gap"></div>

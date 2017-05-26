@@ -890,10 +890,8 @@ hr {
 }
 .main-footer {
   position: relative;
-  background: #262626;
-  padding-top: 30px;
-  border-top: 2px solid #486d97;
-  color: #fff;
+  color: #fff;  
+  height:500px;
 }
 .main-footer .widget-title-sm {
   margin-bottom: 20px;
