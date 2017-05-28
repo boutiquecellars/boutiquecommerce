@@ -88,6 +88,14 @@ hr {
 .table {
   margin-bottom: 0;
 }
+
+@media (max-width:1024px) {
+.wineries-logos {
+    margin-bottom: 0px!important;
+    padding: 0px!important
+ }
+}
+
 @media (max-width:992px) {
   .mobile-hidden {
     display: none;
@@ -891,13 +899,17 @@ hr {
 .main-footer {
   position: relative;
   color: #fff;  
-  height:500px;
+  height:600px;
 }
 .main-footer .widget-title-sm {
   margin-bottom: 20px;
 }
 .main-footer > .container {
   position: relative;
+  background-color: white;
+  heght: 230px!important;
+  color: #777;
+  padding: 36px 36px 0 36px !important
 }
 .main-footer-img {
   position: absolute;
@@ -1003,7 +1015,7 @@ hr {
 .main-footer-links-list,
 .main-footer-links-list-lg {
   list-style: none;
-  margin: 20px 0 10px 0;
+  margin: 0px 0 10px 0
   padding: 0;
 }
 .main-footer-links-list > li,
@@ -1014,7 +1026,7 @@ hr {
 }
 .main-footer-links-list > li > a,
 .main-footer-links-list-lg > li > a {
-  opacity: 0.75;
+  color: #777777!important;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
   filter: alpha(opacity=75);
   color: #fff;
@@ -1091,6 +1103,7 @@ hr {
   .slider-item,
   .slider-item-sm {
     overflow: hidden;
+    height: 300px
   }
 }
 .slider-item-mask {
@@ -1166,8 +1179,8 @@ hr {
     -o-transform: none;
     -ms-transform: none;
     transform: none;
-    padding: 30px;
-    text-align: center !important;
+    padding: 59px 0 0 36%;
+    text-align: left !important;
   }
 }
 .slider-item-img-left,
@@ -1179,7 +1192,7 @@ hr {
   .slider-item-img-left,
   .slider-item-img-right,
   .slider-item-img {
-    padding: 0 30px;
+    padding: 0 0px;
     top: auto !important;
     bottom: 0 !important;
     width: 100% !important;
@@ -1190,6 +1203,8 @@ hr {
     -o-transform: none !important;
     -ms-transform: none !important;
     transform: none !important;
+    width:25% !important;
+    margin-left: 0px!important
   }
 }
 .owl-carousel .owl-item .slider-item-img-left,
@@ -3906,8 +3921,29 @@ header.main {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  width:180px
+  width:180px;
+  float:left;
 }
+
+@media (max-width:420px) {
+ .banner {
+  color: #fff;
+  height: 188px;
+  position: relative;
+  -webkit-border-radius: 6px;
+  border-radius:50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width:180px;
+  float:left;
+  margin-left:62px;
+  margin-bottom:15px;
+}
+}
+
 .banner-title {
   font-size: 25px;
   display: block;

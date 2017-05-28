@@ -4,7 +4,7 @@
     Author     : belchiorpalma
 --%>
 
-<footer class="main-footer" style="background-image:url(img/bg-footer.jpg);" >
+<footer class="main-footer" style="background-image:url(img/bg-footer.jpg); background-size:cover; padding-top: 46px;" >
             <div class="container">
                 <div class="row row-col-gap" data-gutter="60">
                     <div class="col-md-3">
@@ -28,6 +28,7 @@
                             </li>
                         </ul>
                     </div>
+                    <%--
                     <div class="col-md-3">
                         <h4 class="widget-title-sm">Popular Tags</h4>
                         <ul class="main-footer-tag-list">
@@ -54,7 +55,7 @@
                             <li><a href="#">laptops</a>
                             </li>
                         </ul>
-                    </div>
+                    </div>--%>
                     <div class="col-md-3">
                         <h4 class="widget-title-sm">Newsletter</h4>
                         <form>

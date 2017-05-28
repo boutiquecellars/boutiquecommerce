@@ -5,7 +5,7 @@
 --%>
 
 <div class="slider-item-sm" style="background-image:url(img/images-home-grapes.jpg);">
-            <div class="slider-item-mask"></div>
+    <div class="slider-item-mask"></div><%--
             <div class="container">
                 <div class="slider-item-inner">
                     <div class="slider-item-caption-right slider-item-caption-white">
@@ -13,11 +13,9 @@
                         <p class="slider-item-caption-desc">Make Someone Happy with a Paris.</p><a class="btn btn-lg btn-ghost btn-white" href="#">Shop Now</a>
                     </div>
                 </div>
-            </div>
+            </div>--%>
         </div>
-        <div class="gap"></div>
-        <div class="container">
-            <h3 class="widget-title-lg">&nbsp;</h3>
+
         </div>
         <div class="gap"></div>
         <div class="slider-item-sm">
@@ -26,7 +24,7 @@
                     <div class="slider-item-caption-left slider-item-caption-white">
                       <div id="map"></div>
                     </div>
-                    <img class="slider-item-img" src="" alt="Image Alternative text" title="Image Title" style="right: 0; bottom: 0; width: 22%;" />
+                    <img class="slider-item-img" src="" alt="" title="Image Title" style="right: 0; bottom: 0; width: 22%;" />
                 </div>
             </div>
         </div>
