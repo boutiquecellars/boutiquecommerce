@@ -22,8 +22,8 @@ List<Product> listProducts = bd.selectProductsLight();
                             <li>stuff pick</li>
                         </ul>
                         <div class="product-img-wrap">
-                            <img class="product-img-primary" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
-                            <img class="product-img-alt" src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-primary" src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-alt" src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
                         </div>
                         <a class="product-link" href="#"></a>
                         <div class="product-caption">
