@@ -3,8 +3,18 @@
     Created on : 23/05/2017, 10:44:44
     Author     : belchiorpalma
 --%>
+<%@page import="java.util.List"%>
+<%@page import="br.com.itfox.beans.Product"%>
+<%@page import="br.com.itfox.business.BusinessDelegate"%>
+<%
+BusinessDelegate bd = new BusinessDelegate();
+List<Product> listProducts = bd.selectProductsLight();
+%>
 
 <div class="row" data-gutter="15">
+    <%
+            for(Product p:listProducts){
+            %>
                 <div class="col-md-3">
                     <div class="product ">
                         <ul class="product-labels">
@@ -38,6 +48,10 @@
                         </div>
                     </div>
                 </div>
+            <%
+                }
+            %>
+                <!--
                 <div class="col-md-3">
                     <div class="product ">
                         <ul class="product-labels"></ul>
@@ -132,4 +146,5 @@
                         </div>
                     </div>
                 </div>
+            -->
             </div>

@@ -30,6 +30,7 @@ List<Product> listProducts = bd.selectProductsLight();
             <%
             }
             %> 
+            <!--
             <div class="owl-item">
                 <div class="slider-item">
                     <div class="container">
@@ -56,4 +57,5 @@ List<Product> listProducts = bd.selectProductsLight();
                     </div>
                 </div>
             </div>
+            -->
         </div>

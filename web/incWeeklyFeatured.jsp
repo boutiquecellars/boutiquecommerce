@@ -3,8 +3,20 @@
     Created on : 23/05/2017, 10:38:22
     Author     : belchiorpalma
 --%>
+<%@page import="java.util.List"%>
+<%@page import="br.com.itfox.beans.Product"%>
+<%@page import="br.com.itfox.business.BusinessDelegate"%>
+<%
+BusinessDelegate bd = new BusinessDelegate();
+List<Product> listProducts = bd.selectProductsLight();
+%>
 <h3 class="widget-title-lg">Weekly Featured</h3>
  <div class="row" data-gutter="15">
+            <%
+            int i=0;
+            for(Product p:listProducts){
+                if(i==3){break;}
+            %>
                 <div class="col-md-4">
                     <div class="product ">
                         <ul class="product-labels"></ul>
@@ -26,8 +38,8 @@
                                 <li><i class="fa fa-star"></i>
                                 </li>
                             </ul>
-                            <h5 class="product-caption-title">PUMA Faas 700 v2 Women's Running Shoes</h5>
-                            <div class="product-caption-price"><span class="product-caption-price-new">$138</span>
+                            <h5 class="product-caption-title"><%=p.getName()%></h5>
+                            <div class="product-caption-price"><span class="product-caption-price-new">$<%=p.getPrice()%></span>
                             </div>
                             <ul class="product-caption-feature-list">
                                 <li>Free Shipping</li>
@@ -35,6 +47,11 @@
                         </div>
                     </div>
                 </div>
+            <%
+               i++; 
+            }
+            %>
+            <!--
                 <div class="col-md-4">
                     <div class="product ">
                         <ul class="product-labels">
@@ -98,4 +115,5 @@
                         </div>
                     </div>
                 </div>
+                -->
             </div>
