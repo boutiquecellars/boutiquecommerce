@@ -7,8 +7,8 @@
 <nav class="navbar navbar-default navbar-main-white navbar-pad-top navbar-first">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="img/logo-boutiquecellars.svg" alt="Image Alternative text" title="Image Title" />
+                    <a class="navbar-brand" href="index.jsp">
+                        <img src="img/logo-boutiquecellars.svg" alt="Boutique Cellars" title="Boutique Cellars" />
                     </a>
                 </div><!--
                 <form class="navbar-form navbar-left navbar-main-search navbar-main-search-category" role="search">
