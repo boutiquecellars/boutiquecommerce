@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="copyright-text">Copyright &copy; <a href="#">TheBox</a> 2014. Designed my remtsoy. All rights reseved</p>
+                        <p class="copyright-text">Copyright &copy; <a href="#">BoutiqueCellars</a> 2017. Designed my ITFOX. All rights reseved</p>
                     </div>
                     <div class="col-md-6">
                         <ul class="payment-icons-list">
