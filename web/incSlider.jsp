@@ -22,9 +22,10 @@
             <div class="container">
                 <div class="slider-item-inner">
                     <div class="slider-item-caption-left slider-item-caption-white">
-                      <div id="map"></div>
+                      
                     </div>
                     <img class="slider-item-img" src="" alt="" title="Image Title" style="right: 0; bottom: 0; width: 22%;" />
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
