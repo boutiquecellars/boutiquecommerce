@@ -84,6 +84,7 @@
                         <li>
                             <a class="fa fa-th-list category-selections-icon" href="#"></a>
                         </li>
+                        <!--
                         <li><span class="category-selections-sign">Sort by :</span>
                             <select class="category-selections-select">
                                 <option selected>Newest First</option>
@@ -96,6 +97,7 @@
                                 <option>Title : Z - A</option>
                             </select>
                         </li>
+                        -->
                         <li><span class="category-selections-sign">Items :</span>
                             <select class="category-selections-select">
                                 <option>9 / page</option>

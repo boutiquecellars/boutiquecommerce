@@ -795,8 +795,9 @@
                         </li>
                         <li><a href="#" class="navbar-item-top">Payment</a>
                         </li>
+                        <!--
                         <li><a href="#" class="navbar-item-top">Customer Support</a>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
             </div>
