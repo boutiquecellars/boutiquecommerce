@@ -8,6 +8,7 @@
             <div class="container">
                 <div class="collapse navbar-collapse navbar-collapse-no-pad" id="main-nav-collapse">
                     <ul class="nav navbar-nav">
+                        <!--
                         <li class="dropdown"><a href="#"><span >Shop by</span>Department<i class="drop-caret" data-toggle="dropdown"></i></a>
                             <ul class="dropdown-menu dropdown-menu-category">
                                 <li><a href="#"><i class="fa fa-home dropdown-menu-category-icon"></i>Home & Garden</a>
@@ -777,15 +778,16 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a class="navbar-item-top" href="#">Following</a>
+                        -->
+                        <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=wineries">Wineries</a>
                         </li>
-                        <li class="dropdown"><a class="navbar-item-top" href="#">Today Delas</a>
+                        <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=red-wines">Red Wines</a>
                         </li>
-                        <li class="dropdown"><a class="navbar-item-top" href="#">Gift Cards</a>
+                        <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=white-wines">White Wines</a>
                         </li>
-                        <li class="dropdown"><a class="navbar-item-top" href="#">Gift Ideas</a>
+                        <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=rose-wines">Rose Wines</a>
                         </li>
-                        <li class="dropdown"><a class="navbar-item-top" href="#">Weekly Ad</a>
+                        <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=awards">Awards</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
