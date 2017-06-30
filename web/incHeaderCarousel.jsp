@@ -8,7 +8,7 @@
 <%@page import="br.com.itfox.business.BusinessDelegate"%>
 <%
 BusinessDelegate bd = new BusinessDelegate();
-List<Product> listProducts = bd.selectProductsLight();
+List<Product> listProducts = bd.selectProductsCarousel();
 %>
 <div class="owl-carousel owl-loaded owl-nav-dots-inner" data-options='{"items":1,"loop":true}'>
             <%

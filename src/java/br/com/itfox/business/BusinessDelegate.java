@@ -948,6 +948,42 @@ public class BusinessDelegate {
         return products;
     }
     
+    public List<Product> selectProductsCarousel(){
+        Connection conn = new DBase(true).getConnection();
+        List<Product> products = new ArrayList<Product>();
+        
+        if(conn!=null){
+            try {
+                String sql = "SELECT p.PRODUCT_ID, p.NAME, p.PRICE, p.DESCRIPTION, p.META_TAG_TITLE, p.META_TAG_DESCRIPTION, p.META_TAG_KEYWORDS  FROM product p, product_carousel c WHERE p.product_id=c.product_id ORDER BY c.product_order";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    Product p = new Product();
+                    p.setProductId(rs.getInt("PRODUCT_ID"));
+                    p.setName(rs.getString("NAME"));
+                    p.setPrice(rs.getFloat("PRICE"));
+                    p.setDescription(rs.getBlob("DESCRIPTION"));
+                    p.setMetaTagTitle(rs.getString("META_TAG_TITLE"));
+                    p.setMetaTagDescription(rs.getString("META_TAG_DESCRIPTION"));
+                    p.setMetaTagKeywords(rs.getString("META_TAG_KEYWORDS"));
+                   // p.setPic1(rs.getBlob("PIC1"));
+                   // p.setPic2(rs.getBlob("PIC2"));
+                   // p.setPic3(rs.getBlob("PIC3"));
+                   // p.setPic4(rs.getBlob("PIC4"));
+                   // p.setPic5(rs.getBlob("PIC5"));
+                    
+                    products.add(p);
+                }
+                conn.close();
+                
+            } catch (SQLException ex) {
+                br.com.itfox.utils.Logger.getLogger(ex, BusinessDelegate.class.getName(),ex.getMessage());
+                Logger.getLogger(BusinessDelegate.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return products;
+    }
+    
     public Product selectProduct(int productId){
         Connection conn = new DBase(true).getConnection();
         Product p = new Product();
