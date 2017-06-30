@@ -27,6 +27,9 @@ nav.navbar-default.navbar-main-white.yamm{
     padding-bottom: 10px;
     height: 100px !important;
 }
+div#main-nav-collapse.collapse.navbar-collapse.navbar-collapse-no-pad{
+    margin-top:-14px;
+}
 nav.navbar-default.navbar-main-white.yamm .container{
     padding-top: 0px;
 }
