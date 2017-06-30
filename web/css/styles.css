@@ -19,8 +19,21 @@
 /****** ITFOX *******/
 nav.navbar-default.navbar-main-white.yamm{
     background-color: #43434e;
-    
+    height:46px;
+    color:white;
 }
+.navbar-pad-top{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 100px !important;
+}
+nav.navbar-default.navbar-main-white.yamm .container{
+    padding-top: 0px;
+}
+.navbar-default ul.nav.navbar-nav > li > a{
+    color:white;
+}
+/****** <--// ITFOX *******/
 /****** Typography ******/
 body {
   font-family: 'Roboto', Tahoma, Arial, helvetica, sans-serif;
