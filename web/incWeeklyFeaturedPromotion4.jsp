@@ -39,8 +39,8 @@ List<Product> listProducts = bd.selectProductsLight();
                                 <li class="rated"><i class="fa fa-star"></i>
                                 </li>
                             </ul>
-                            <h5 class="product-caption-title">Cobra Fly-Z Mens Golf Driver - 6 Colors - 4 Flex Options - Right Hand - 2015</h5>
-                            <div class="product-caption-price"><span class="product-caption-price-old">$75</span><span class="product-caption-price-new">$30</span>
+                            <h5 class="product-caption-title"><%=p.getName()%></h5>
+                            <div class="product-caption-price"><span class="product-caption-price-old">$75</span><span class="product-caption-price-new">$<%=p.getPrice()%></span>
                             </div>
                             <ul class="product-caption-feature-list">
                                 <li>Free Shipping</li>
