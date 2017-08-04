@@ -17,6 +17,8 @@
 */
 
 /****** ITFOX *******/
+
+
 nav.navbar-default.navbar-main-white.yamm{
     background-color: #43434e;
     height:46px;
@@ -33,9 +35,12 @@ div#main-nav-collapse.collapse.navbar-collapse.navbar-collapse-no-pad{
 nav.navbar-default.navbar-main-white.yamm .container{
     padding-top: 0px;
 }
-.navbar-default ul.nav.navbar-nav > li > a{
-    color:white;
+ul.nav.navbar-nav > li > a{
+    color:gray;
 }
+
+#navbar-item-top {color:white!important}
+
 /** Carousel **/
 img.slider-item-img-right{
     width:auto !important;
@@ -258,6 +263,7 @@ hr {
 }
 .navbar-item-top {
   margin-top: 12px;
+  color:white!important
 }
 .navbar-nav > li > a {
   font-size: 14px;
