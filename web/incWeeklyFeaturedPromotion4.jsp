@@ -40,7 +40,7 @@ List<Product> listProducts = bd.selectProductsLight();
                                 </li>
                             </ul>
                             <h5 class="product-caption-title"><%=p.getName()%></h5>
-                            <div class="product-caption-price"><span class="product-caption-price-old">$75</span><span class="product-caption-price-new">$<%=p.getPrice()%></span>
+                            <div class="product-caption-price"><!--<span class="product-caption-price-old">$75</span>--><span class="product-caption-price-new">$<%=p.getPrice()%></span>
                             </div>
                             <ul class="product-caption-feature-list">
                                 <li>Free Shipping</li>
