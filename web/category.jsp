@@ -64,7 +64,7 @@
         
         
 
-        <header class="page-header page-header-banner" style="background-image:url(img/1400x220.png);">
+        <header class="page-header page-header-banner" style="background-image:url(img/header-grapes.jpg);">
             <div class="container">
                 <div class="page-header-banner-inner">
                     <h1 class="page-title">Running Shoes</h1>

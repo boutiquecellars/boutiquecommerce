@@ -21,9 +21,9 @@
     <style>
     #map {
         height: 475px; 
-       width: 1173px !important;
+       min-width: 1024px;
+        width:100% !important;
         background-color:orange;
-        background-image:url(img/map.png)
       }
 	</style>
 
@@ -131,7 +131,7 @@
     <script src="js/owl-carousel.js"></script>
     <script src="js/magnific.js"></script>
     <script src="js/custom.js"></script>
-<%--
+
 <script>
       var map;
       function initMap() {
@@ -142,7 +142,6 @@
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaoGWM7-5GpC7qEP2CwdkqIhu-WEKSCyI&callback=initMap" async defer></script>
---%>
 
 
 
