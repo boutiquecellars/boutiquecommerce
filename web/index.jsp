@@ -18,13 +18,9 @@
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/mystyles.css">
+    <link rel="stylesheet" href="css/itfoxIndex.css">
     <style>
-    #map {
-        height: 475px; 
-       width: 1173px !important;
-        background-color:orange;
-        background-image:url(img/map.png)
-      }
+    
 	</style>
 
 </head>

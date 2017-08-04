@@ -45,6 +45,7 @@ List<Product> listProducts = bd.selectProductsLight();
                                 <li>Free Shipping</li>
                             </ul>
                         </div>
+                              
                     </div>
                 </div>
             <%
