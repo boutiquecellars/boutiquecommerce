@@ -1,3 +1,5 @@
+<%@page import="br.com.itfox.beans.Category"%>
+<%@page import="br.com.itfox.security.Security"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.itfox.beans.Product"%>
 <%@page import="br.com.itfox.business.BusinessDelegate"%>
@@ -28,6 +30,12 @@
 </head>
 
 <body>
+    <%
+    String categoryTag = "";
+    categoryTag = Security.getParameter(request.getParameter("category"));
+    BusinessDelegate bd = new BusinessDelegate();
+    Category c = bd.selectCategory(categoryTag);
+    %>
     <div class="global-wrapper clearfix" id="global-wrapper">
          <!-- include Navbar Static Top -->
         <jsp:include page="incNavbarStaticTop.jsp">
@@ -64,7 +72,7 @@
         
         
 
-        <header class="page-header page-header-banner" style="background-image:url(img/header-grapes.jpg);">
+        <header class="page-header page-header-banner" style="background-image:url(<% if(c!=null){out.print(c.getImage1());}%>);">
             <div class="container">
                 <div class="page-header-banner-inner">
                     <h1 class="page-title">Running Shoes</h1>

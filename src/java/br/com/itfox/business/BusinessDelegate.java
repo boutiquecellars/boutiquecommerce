@@ -6,6 +6,7 @@
 package br.com.itfox.business;
 
 import br.com.itfox.beans.AreaOper;
+import br.com.itfox.beans.Category;
 import br.com.itfox.beans.Client;
 import br.com.itfox.beans.CollectionColumns;
 import br.com.itfox.beans.EmailMkt;
@@ -3345,5 +3346,30 @@ public class BusinessDelegate {
             }
         }
         return list;
-    }  
+    }
+     
+     /*** boutique cellars ****/ 
+     public Category selectCategory(String categoryTag){
+        Category c = new Category();
+        try{
+                Connection conn = new DBase(true).getConnection();
+                String sqlRegrasDesconto = "SELECT  CATEGORY_ID, CATEGORY_TAG, CATEGORY, DESCRIPTION, IMAGE1 FROM category WHERE CATEGORY_TAG=?";
+                PreparedStatement statement =
+                conn.prepareStatement(sqlRegrasDesconto);
+                statement.setString(1, categoryTag);
+                ResultSet  rs = statement.executeQuery();
+                 while(rs.next()){
+                     c.setCategoryId(rs.getInt("CATEGORY_ID"));
+                     c.setCategory(rs.getString("CATEGORY"));
+                     c.setDescription(rs.getString("DESCRIPTION"));
+                     c.setImage1(rs.getString("IMAGE1"));
+                }
+                     conn.close();
+            }catch(Exception ex){
+                br.com.itfox.utils.Logger.getLogger(ex, BusinessDelegate.class.getName(),ex.getMessage());
+                Logger.getLogger(BusinessDelegate.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+        return c;
+    }
 }
