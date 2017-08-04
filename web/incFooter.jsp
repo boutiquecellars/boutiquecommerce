@@ -9,7 +9,7 @@
                 <div class="row row-col-gap" data-gutter="60">
                     <div class="col-md-3">
                         <h4 class="widget-title-sm">TheBox Shop</h4>
-                        <p>Rutrum gravida interdum vehicula natoque massa aliquet ante rutrum lectus quis curabitur</p>
+                        <p>fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara  </p>
                         <ul class="main-footer-social-list">
                             <li>
                                 <a class="fa fa-facebook" href="#"></a>
