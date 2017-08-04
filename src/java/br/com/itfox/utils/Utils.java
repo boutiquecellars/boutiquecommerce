@@ -2,6 +2,7 @@ package br.com.itfox.utils;
 
 import br.com.itfox.business.DBase;
 import br.com.itfox.config.Preferences;
+import br.com.itfox.servlet.DashboardServlet;
 import java.awt.image.BufferedImage;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -324,5 +325,33 @@ public class Utils {
         } catch (IOException ex) {
             Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static int parseInt(String s){
+        int i=0;
+        try{
+                if(s!=null && !s.isEmpty() && s!="" && s!=" " && s.length()>0 && !s.equalsIgnoreCase("null") && !s.equalsIgnoreCase("undefined")){
+                    i=Integer.parseInt(s);
+                }
+            }catch(Exception ex){
+                 br.com.itfox.utils.Logger.getLogger(ex, DashboardServlet.class.getName()+" -- Parse Int Exception",ex.getMessage());
+                 Logger.getLogger(DashboardServlet.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        return i;
+    }
+    
+    public static float parseFloat(String s){
+        float i=0;
+        try{
+                if(s!=null && !s.isEmpty() && s!="" && s!=" " && !s.trim().equalsIgnoreCase("-") && s.length()>0){
+                    i=Float.parseFloat(s);
+                }else if(s!=null && s.trim().equalsIgnoreCase("-")){
+                    i=0;
+                }
+            }catch(Exception ex){
+                 br.com.itfox.utils.Logger.getLogger(ex, DashboardServlet.class.getName()+" -- Parse Float Exception",ex.getMessage());
+                 Logger.getLogger(DashboardServlet.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        return i;
     }
 }

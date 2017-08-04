@@ -43,8 +43,8 @@ List<Product> listProducts = bd.selectProductsLight();
                                 <li class="rated"><i class="fa fa-star"></i>
                                 </li>
                             </ul>
-                            <h5 class="product-caption-title">Dooney & Bourke Pebble Grain Hobo</h5>
-                            <div class="product-caption-price"><span class="product-caption-price-new">$56</span>
+                            <h5 class="product-caption-title"><%=p.getName() %></h5>
+                            <div class="product-caption-price"><span class="product-caption-price-new">$<%=p.getPrice() %></span>
                             </div>
                             <ul class="product-caption-feature-list">
                                 <li>Free Shipping</li>

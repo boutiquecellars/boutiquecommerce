@@ -1,3 +1,7 @@
+<%@page import="br.com.itfox.beans.Product"%>
+<%@page import="br.com.itfox.utils.Utils"%>
+<%@page import="br.com.itfox.business.BusinessDelegate"%>
+<%@page import="br.com.itfox.security.Security"%>
 <!DOCTYPE HTML>
 <html>
 
@@ -22,6 +26,13 @@
 </head>
 
 <body>
+    <%
+    String strProductId = Security.getParameter(request.getParameter("product_id"));
+    BusinessDelegate bd = new BusinessDelegate();
+    int productId = 0;
+    productId = Utils.parseInt(strProductId);
+    Product p = bd.selectProduct(productId);
+    %>
     <div class="global-wrapper clearfix" id="global-wrapper">
         <!-- include Navbar Static Top -->
         <jsp:include page="incNavbarStaticTop.jsp">
@@ -74,11 +85,12 @@
                 <div class="col-md-6">
                     <div class="product-page-product-wrap jqzoom-stage jqzoom-stage-lg">
                         <div class="clearfix">
-                            <a href="img/800x800.png" id="jqzoom" data-rel="gal-1">
-                                <img src="img/500x500.png" alt="Image Alternative text" title="Image Title" />
+                            <a href="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" id="jqzoom" data-rel="gal-1">
+                                <img src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>
                     </div>
+                    <!--        
                     <ul class="jqzoom-list">
                         <li>
                             <a class="zoomThumbActive" href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: 'img/500x500.png', largeimage: 'img/800x800.png'}">
@@ -106,6 +118,7 @@
                             </a>
                         </li>
                     </ul>
+                    -->
                 </div>
                 <div class="col-md-6">
                     <div class="_box-highlight">
@@ -123,11 +136,11 @@
                         </ul>
                         <p class="product-page-product-rating-sign"><a href="#">238 customer reviews</a>
                         </p>
-                        <h1>Vera Bradley Round Travel Bag</h1>
-                        <p class="product-page-price">$59.99</p>
+                        <h1><%=p.getName()%></h1>
+                        <p class="product-page-price">$<%=p.getPrice()%></p>
                         <p class="text-muted text-sm">Free Shipping</p>
-                        <p class="product-page-desc-lg">Go ahead, make it a “round” trip! This new duffel offers a unique round shape that makes it so easy to pack. Three multifunction interior pockets keep smaller items organized, while a front and side slip pocket keeps essentials
-                            always conveniently within reach.</p>
+                        <p class="product-page-desc-lg"><%=Utils.blobToString(p.getDescription()) %></p>
+                        <!--
                         <ul class="product-page-option-list">
                             <li class="clearfix">
                                 <h5 class="product-page-option-title">Color</h5>
@@ -148,7 +161,7 @@
                                     <option>Small</option>
                                 </select>
                             </li>
-                        </ul>
+                        </ul>-->
                         <ul class="product-page-actions-list">
                             <li class="product-page-qty-item">
                                 <button class="product-page-qty product-page-qty-minus">-</button>
