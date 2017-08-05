@@ -94,7 +94,7 @@
             <div class="gap"></div>
             <h3 class="widget-title-lg">&nbsp;</h3>
         </div>
-        <div class="gap"></div>
+        <div class="gap" ></div>
         <!-- include Slider -->
             <jsp:include page="incSlider.jsp">
                 <jsp:param name="page" value="index" />

@@ -17,7 +17,7 @@
         </div>
 
         </div>
-        <div class="gap"></div>
+        <div class="gap gapmap"></div>
         <div class="slider-item-sm">
             <div class="container" style="padding-left: 0px!important">
                 <div class="slider-item-inner">

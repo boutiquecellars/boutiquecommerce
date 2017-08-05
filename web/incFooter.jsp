@@ -4,7 +4,7 @@
     Author     : belchiorpalma
 --%>
 
-<footer class="main-footer" style="background-image:url(img/bg-footer.jpg); background-size:cover; padding-top: 46px;" >
+<footer class="main-footer" style="background-image:url(img/bg-footer.jpg); background-size:cover;" >
             <div class="container">
                 <div class="row row-col-gap" data-gutter="60">
                     <div class="col-md-3">

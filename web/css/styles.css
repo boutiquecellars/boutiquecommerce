@@ -41,6 +41,27 @@ ul.nav.navbar-nav > li > a{
 
 #navbar-item-top {color:white!important}
 
+@media (max-width:768px) {
+ul.nav.navbar-nav > li > a{
+    color:white;
+    margin-top: 21px;
+}
+
+.navbar-toggle {
+    margin-top: 28px;
+ }
+.yamm .container {
+    position: relative;
+    padding-top: 18px;
+    background-color: #43434e;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+ 
+}
+
 /** Carousel **/
 img.slider-item-img-right{
     width:auto !important;
@@ -934,6 +955,7 @@ hr {
   position: relative;
   color: #fff;  
   height:600px;
+  padding-top: 150px!important;
 }
 .main-footer .widget-title-sm {
   margin-bottom: 20px;
@@ -1154,6 +1176,7 @@ hr {
 }
 .slider-item-sm {
   height: 400px;
+  background-color: darkgray!important;
 }
 .slider-item-inner {
   position: relative;
@@ -2004,6 +2027,12 @@ header.main {
   border: 0;
   border-top: 1px solid #ededed;
   border-bottom: 1px solid #fff;
+}
+
+.gapmap {
+    background-color: darkgray!important;
+    height: 70px;
+    margin: 0px!important;
 }
 /****** End of White Space ******/
 /****** Buttons ******/
