@@ -1071,14 +1071,15 @@ hr {
 .main-footer-links-list,
 .main-footer-links-list-lg {
   list-style: none;
-  margin: 0px 0 10px 0
+  margin: 0px 0 20px 0px!important;
   padding: 0;
+  
 }
 .main-footer-links-list > li,
 .main-footer-links-list-lg > li {
   display: inline-block;
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .main-footer-links-list > li > a,
 .main-footer-links-list-lg > li > a {
@@ -1267,8 +1268,10 @@ hr {
 .owl-carousel .owl-item .slider-item-img-left,
 .owl-carousel .owl-item .slider-item-img-right,
 .owl-carousel .owl-item .slider-item-img {
-  width: 45%;
+  width: 43%!important;
   -webkit-filter: drop-shadow(1px 1px 10px rgba(0,0,0,0.3));
+  top:50%!important
+  
 }
 .slider-item-img-left,
 .slider-item-img-right,

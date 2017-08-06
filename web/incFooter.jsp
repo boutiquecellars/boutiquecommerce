@@ -8,23 +8,16 @@
             <div class="container">
                 <div class="row row-col-gap" data-gutter="60">
                     <div class="col-md-3">
-                        <h4 class="widget-title-sm">TheBox Shop</h4>
-                        <p>fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara fanfara  </p>
+                        <h4 class="widget-title-sm">Boutique Cellars</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla arcu leo, efficitur vel blandit sit amet.
+
+</p>
                         <ul class="main-footer-social-list">
                             <li>
                                 <a class="fa fa-facebook" href="#"></a>
                             </li>
                             <li>
                                 <a class="fa fa-twitter" href="#"></a>
-                            </li>
-                            <li>
-                                <a class="fa fa-pinterest" href="#"></a>
-                            </li>
-                            <li>
-                                <a class="fa fa-instagram" href="#"></a>
-                            </li>
-                            <li>
-                                <a class="fa fa-google-plus" href="#"></a>
                             </li>
                         </ul>
                     </div>
@@ -70,19 +63,11 @@
                 <ul class="main-footer-links-list">
                     <li><a href="#">About Us</a>
                     </li>
-                    <li><a href="#">Jobs</a>
-                    </li>
-                    <li><a href="#">Legal</a>
-                    </li>
                     <li><a href="#">Support & Customer Service</a>
-                    </li>
-                    <li><a href="#">Blog</a>
                     </li>
                     <li><a href="#">Privacy</a>
                     </li>
                     <li><a href="#">Terms</a>
-                    </li>
-                    <li><a href="#">Press</a>
                     </li>
                     <li><a href="#">Shipping</a>
                     </li>
