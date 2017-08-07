@@ -1177,7 +1177,7 @@ hr {
 }
 .slider-item-sm {
   height: 400px;
-  background-color: darkgray!important;
+  background-color: #c4baae !important;
 }
 .slider-item-inner {
   position: relative;
@@ -2033,7 +2033,7 @@ header.main {
 }
 
 .gapmap {
-    background-color: darkgray!important;
+    background-color: #c4baae !important;
     height: 70px;
     margin: 0px!important;
 }
