@@ -3,13 +3,27 @@
     Created on : 06/06/2017, 09:41:04
     Author     : belchiorpalma
 --%>
+<%@page import="br.com.itfox.beans.Category"%>
+<%@page import="java.util.List"%>
+<%@page import="br.com.itfox.business.BusinessDelegate"%>
 <div class="col-md-3">
                     <aside class="category-filters">
                         <div class="category-filters-section">
                             <h3 class="widget-title-sm">Category</h3>
                             <ul class="cateogry-filters-list">
-                                <li><a href="#">Man's Shoes</a>
+                                <%
+                                BusinessDelegate bd = new BusinessDelegate();
+                                List<Category> list = bd.selectCategories(); 
+                                for(Category c:list){
+                                %>
+                                
+                                
+                                <li><a href="#"><%c.getCategory() %></a>
                                 </li>
+                                <%
+                                }
+                                %>
+                                
                                 <li><a href="#">Unisex Clothes, Shoes &amp; Accs</a>
                                 </li>
                                 <li><a href="#">Kids Clothes, Shoes &amp; Accs</a>

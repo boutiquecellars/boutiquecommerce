@@ -3372,4 +3372,30 @@ public class BusinessDelegate {
                 
         return c;
     }
+     
+     public List<Category> selectCategories(){
+        Category c = new Category();
+        List<Category> list = new ArrayList<Category>();
+        try{
+                Connection conn = new DBase(true).getConnection();
+                String sqlRegrasDesconto = "SELECT  CATEGORY_ID, CATEGORY_TAG, CATEGORY, DESCRIPTION, IMAGE1 FROM category ";
+                PreparedStatement statement =
+                conn.prepareStatement(sqlRegrasDesconto);
+               // statement.setString(1, categoryTag);
+                ResultSet  rs = statement.executeQuery();
+                 while(rs.next()){
+                     c.setCategoryId(rs.getInt("CATEGORY_ID"));
+                     c.setCategory(rs.getString("CATEGORY"));
+                     c.setDescription(rs.getString("DESCRIPTION"));
+                     c.setImage1(rs.getString("IMAGE1"));
+                     list.add(c);
+                }
+                     conn.close();
+            }catch(Exception ex){
+                br.com.itfox.utils.Logger.getLogger(ex, BusinessDelegate.class.getName(),ex.getMessage());
+                Logger.getLogger(BusinessDelegate.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+        return list;
+    }
 }
