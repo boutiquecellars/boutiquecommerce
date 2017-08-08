@@ -75,15 +75,15 @@
         <header class="page-header page-header-banner" style="background-image:url(<% if(c!=null){out.print(c.getImage1());}%>);">
             <div class="container">
                 <div class="page-header-banner-inner">
-                    <h1 class="page-title">Running Shoes</h1>
+                    <h1 class="page-title">Categories</h1>
                     <ol class="breadcrumb page-breadcrumb">
                         <li><a href="#">Home</a>
                         </li>
-                        <li><a href="#">Clothes &amp; Shoes</a>
+                       <!-- <li><a href="#">Clothes &amp; Shoes</a>
                         </li>
                         <li><a href="#">Woman</a>
-                        </li>
-                        <li class="active">Running Shoes</li>
+                        </li>-->
+                        <li class="active"><%=c.getCategory() %></li>
                     </ol>
                     <ul class="category-selections clearfix">
                         <li>

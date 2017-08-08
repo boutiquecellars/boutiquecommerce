@@ -70,15 +70,17 @@
        
         
         <div class="container">
+            
             <header class="page-header">
                 <ol class="breadcrumb page-breadcrumb">
                     <li><a href="#">Home</a>
                     </li>
+                    <!--
                     <li><a href="#">Clothing, Shoes & Accessories</a>
                     </li>
                     <li><a href="#">Women's Handbags & Bags</a>
-                    </li>
-                    <li class="active">Vera Bradley Round Travel Bag</li>
+                    </li>-->
+                    <li class="active"><%=p.getName()%></li>
                 </ol>
             </header>
             <div class="row">
