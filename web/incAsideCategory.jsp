@@ -18,28 +18,13 @@
                                 %>
                                 
                                 
-                                <li><a href="#"><%c.getCategory() %></a>
+                                <li><a href="#"><%=c.getCategory() %></a>
                                 </li>
                                 <%
                                 }
                                 %>
                                 
-                                <li><a href="#">Unisex Clothes, Shoes &amp; Accs</a>
-                                </li>
-                                <li><a href="#">Kids Clothes, Shoes &amp; Accs</a>
-                                </li>
-                                <li><a href="#">Woman's Clothing</a>
-                                </li>
-                                <li><a href="#">Fitness, Running &amp; Yoga</a>
-                                </li>
-                                <li><a href="#">Team Sports</a>
-                                </li>
-                                <li><a href="#">Outdoor Sports</a>
-                                </li>
-                                <li><a href="#">Cycling</a>
-                                </li>
-                                <li><a href="#">Water Sports</a>
-                                </li>
+                               
                             </ul>
                         </div>
                         <div class="category-filters-section">
