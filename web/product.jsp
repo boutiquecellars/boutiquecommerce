@@ -170,7 +170,7 @@
                                 <input class="product-page-qty product-page-qty-input" type="text" value="1" />
                                 <button class="product-page-qty product-page-qty-plus">+</button>
                             </li>
-                            <li><a class="btn btn-lg btn-primary" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
+                            <li><a class="btn btn-lg btn-primary" href="ShoppingCart?product=<%=p.getName()%>&ref=<%=p.getProductId()%>"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
                             </li>
                             <li><a class="btn btn-lg btn-default" href="#"><i class="fa fa-star"></i>Wishlist</a>
                             </li>
