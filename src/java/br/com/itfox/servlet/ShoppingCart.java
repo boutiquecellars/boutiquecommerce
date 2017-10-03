@@ -5,12 +5,19 @@
  */
 package br.com.itfox.servlet;
 
+import br.com.itfox.beans.Order;
+import br.com.itfox.beans.OrderItem;
+import br.com.itfox.beans.Product;
+import br.com.itfox.business.BusinessDelegate;
+import br.com.itfox.security.Security;
+import br.com.itfox.utils.Utils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,9 +34,86 @@ public class ShoppingCart extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    public void insertItemOrder(BusinessDelegate bd, Order order, String strProductId, float productQuantity){
+        Product p = new Product();
+                OrderItem o = new OrderItem();
+                p = bd.selectProduct(Utils.parseInt(strProductId)); // localizando o produto
+                o.setOrder(order);
+                o.setProduct(p);
+                o.setProductDescount(0);
+                o.setProductPrice(p.getPrice());
+                o.setProductQuantity(productQuantity);
+                o.setProductTotal(productQuantity*p.getPrice());
+                o.setOrderItemStatus("1");//new
+                // inserindo o item no banco de dados
+                int r = bd.insertSalesOrderItem(o);
+                if(r==1){
+                    System.out.println("Inserido com sucesso");
+                }
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //variaveis
+        String strProductId = (String) Security.getParameter(request.getParameter("ref"));
+        int productQuantity = 1;
+        Order order = new Order();
+        BusinessDelegate bd = new BusinessDelegate();
+        
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res =  (HttpServletResponse) response;
+        HttpSession session = request.getSession(false);
+         
+        //Get the IP address of client machine.
+        String ipAddress = req.getRemoteAddr();
+        String url = req.getRequestURI();
+        
+        
+        if(session!=null && !session.isNew()){
+            System.out.println("session started..");
+            order = (Order) session.getAttribute("order");
+            if(order==null){
+                order = bd.insertOrder(session.getId(), ipAddress);
+                
+                // inserindo os itens no pedido
+                this.insertItemOrder(bd, order, strProductId, productQuantity);
+                // colocando na sessao os itens do pedido
+                order = bd.selectSalesOrder(order.getOrderId());
+                session.setAttribute("order", order);
+            }else{
+                // ja tenho um pedido cadastrado
+                // inserindo os itens no pedido
+                this.insertItemOrder(bd, order, strProductId, productQuantity);
+                // colocando na sessao os itens do pedido
+                order = bd.selectSalesOrder(order.getOrderId());
+                session.setAttribute("order", order);
+            }
+        }else{
+            // criando a sessao pela primeira vez
+            System.out.println("first session");
+            session = req.getSession(true);
+            order = bd.insertOrder(session.getId(), ipAddress);
+            //session.setAttribute("order", order);
+            this.insertItemOrder(bd, order, strProductId, productQuantity);
+            // colocando na sessao os itens do pedido
+            order = bd.selectSalesOrder(order.getOrderId());
+            session.setAttribute("order", order);
+        }
+        int productId=0;
+        try{
+            productId = Utils.parseInt(strProductId);
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+        /*** Criando um pedido
+          para o cliente
+          * 
+         ***/
+        
+        
+        
         
         request.getRequestDispatcher("shopping-cart.jsp").forward(request, response);
         /*

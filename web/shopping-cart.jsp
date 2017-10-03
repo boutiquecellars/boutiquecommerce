@@ -1,3 +1,6 @@
+<%@page import="br.com.itfox.beans.OrderItem"%>
+<%@page import="java.util.List"%>
+<%@page import="br.com.itfox.beans.Order"%>
 <!DOCTYPE HTML>
 <html>
 
@@ -55,10 +58,19 @@
             <jsp:param name="page" value="index" />
         </jsp:include>
         <!-- // include Navbar Default -->
-        
+        <%
+        Order order = new Order();
+        String sessionId="";
+        if(session!=null){
+            order = (Order) session.getAttribute("order");
+            if(order!=null){
+                sessionId=order.getOrderId()+"";
+            }
+        }
+        %>
         <div class="container">
             <header class="page-header">
-                <h1 class="page-title">My Shopping Bag</h1>
+                <h1 class="page-title">My Shopping Bag <%=sessionId%></h1>
             </header>
             <div class="row">
                 <div class="col-md-10">
@@ -67,7 +79,7 @@
                             <tr>
                                 <th>Product</th>
                                 <th>Title</th>
-                                <th>Color/Size</th>
+                                
                                 <th>Price</th>
                                 <th>Quality</th>
                                 <th>Total</th>
@@ -75,78 +87,36 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <%
+                            if(order!=null){
+                                List<OrderItem> itens = order.getItems();
+                                if(itens!=null && itens.size()>0){
+                                    for(OrderItem i:itens){
+                                 %>
+                                 <tr>
                                 <td class="table-shopping-cart-img">
                                     <a href="#">
-                                        <img src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                                        <img src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=i.getProduct().getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
                                     </a>
                                 </td>
-                                <td class="table-shopping-cart-title"><a href="#">Gucci Patent Leather Open Toe Platform</a>
+                                <td class="table-shopping-cart-title"><a href="#"><% if(i.getProduct()!=null){out.print(i.getProduct().getName());} %></a>
                                 </td>
-                                <td>Green</td>
-                                <td>$499</td>
+                                
+                                <td>$<% out.print(i.getProductPrice()); %></td>
                                 <td>
-                                    <input class="form-control table-shopping-qty" type="text" value="1" />
+                                    <input class="form-control table-shopping-qty" type="text" value="<%=i.getProductQuantity() %>" />
                                 </td>
-                                <td>$499</td>
+                                <td>$<%=i.getProductTotal() %></td>
                                 <td>
                                     <a class="fa fa-close table-shopping-remove" href="#"></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="table-shopping-cart-img">
-                                    <a href="#">
-                                        <img src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-                                    </a>
-                                </td>
-                                <td class="table-shopping-cart-title"><a href="#">Nikon D5200 24.1 MP Digital SLR Camera</a>
-                                </td>
-                                <td>Black</td>
-                                <td>$350</td>
-                                <td>
-                                    <input class="form-control table-shopping-qty" type="text" value="1" />
-                                </td>
-                                <td>$350</td>
-                                <td>
-                                    <a class="fa fa-close table-shopping-remove" href="#"></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="table-shopping-cart-img">
-                                    <a href="#">
-                                        <img src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-                                    </a>
-                                </td>
-                                <td class="table-shopping-cart-title"><a href="#">Apple 11.6" MacBook Air Notebook</a>
-                                </td>
-                                <td>Silver</td>
-                                <td>$1100</td>
-                                <td>
-                                    <input class="form-control table-shopping-qty" type="text" value="1" />
-                                </td>
-                                <td>$1100</td>
-                                <td>
-                                    <a class="fa fa-close table-shopping-remove" href="#"></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="table-shopping-cart-img">
-                                    <a href="#">
-                                        <img src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-                                    </a>
-                                </td>
-                                <td class="table-shopping-cart-title"><a href="#">Fossil Women's Original Boyfriend</a>
-                                </td>
-                                <td>Gold</td>
-                                <td>$250</td>
-                                <td>
-                                    <input class="form-control table-shopping-qty" type="text" value="1" />
-                                </td>
-                                <td>$250</td>
-                                <td>
-                                    <a class="fa fa-close table-shopping-remove" href="#"></a>
-                                </td>
-                            </tr>
+                                 <%
+                                    }// fim for
+                                }// fim if itens nulos
+                            }// fim order nulo
+                            %>
+                            
                         </tbody>
                     </table>
                     <div class="gap gap-small"></div>
@@ -165,7 +135,7 @@
                 </div>
             </div>
             <ul class="list-inline">
-                <li><a class="btn btn-default" href="#">Continue Shopping</a>
+                <li><a class="btn btn-default" href="index.jsp">Continue Shopping</a>
                 </li>
                 <li><a class="btn btn-default" href="#">Update Bag</a>
                 </li>

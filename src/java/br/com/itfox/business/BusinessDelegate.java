@@ -18,6 +18,8 @@ import br.com.itfox.beans.LogUpload;
 import br.com.itfox.beans.Member;
 import br.com.itfox.beans.MemberAreaOper;
 import br.com.itfox.beans.Mensagem;
+import br.com.itfox.beans.Order;
+import br.com.itfox.beans.OrderItem;
 import br.com.itfox.beans.Product;
 import br.com.itfox.beans.Profile;
 import br.com.itfox.utils.Utils;
@@ -66,6 +68,162 @@ public class BusinessDelegate {
                 
         return m;
     }
+    public Order insertOrder(String session, String ip){
+        Connection conn = new DBase(true).getConnection();
+        Order order = new Order();
+        int result=0;
+        if(conn!=null ){
+            try {
+                // se não existir na sessão, entao grava o pedido
+                String sql = "SELECT count(*) total, order_id, client_id, order_date, description, order_status, session, ip  from sales_order where session=?";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, session);
+                ResultSet rs = ps.executeQuery();
+                int row=0;
+                while(rs.next()){
+                    row = rs.getInt("total");
+                   order.setOrderId(rs.getInt("order_id"));
+                   order.setClient(new Client());
+                   order.setOrderDate(rs.getTimestamp("order_date"));
+                   order.setDescription(rs.getString("description"));
+                   order.setOrderStatus(rs.getString("order_status"));
+                   order.setSession(rs.getString("session"));
+                   order.setIp(rs.getString("ip"));
+                }
+                if(row==0){
+                // inserindo        
+                sql = "INSERT INTO sales_order (order_status, session, ip) VALUES (?, ?, ?)";
+                ps = conn.prepareStatement(sql);
+                ps.setInt(1, 1);
+                ps.setString(2, session);
+                ps.setString(3, ip);
+                result = ps.executeUpdate();
+                // resgatando o código do pedido para lancar na sessao
+                sql = "SELECT order_id, client_id, order_date, description, order_status, session, ip from sales_order where session=? and ip=? and order_status=? order by order_id desc limit 1";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, session);
+                ps.setString(2, ip);
+                ps.setInt(3, 1);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                   order.setOrderId(rs.getInt("order_id"));
+                   order.setClient(new Client());
+                   order.setOrderDate(rs.getTimestamp("order_date"));
+                   order.setDescription(rs.getString("description"));
+                   order.setOrderStatus(rs.getString("order_status"));
+                   order.setSession(rs.getString("session"));
+                   order.setIp(rs.getString("ip"));
+                }
+                }
+                conn.close();
+                
+            } catch (SQLException ex) {
+                br.com.itfox.utils.Logger.getLogger(ex, BusinessDelegate.class.getName(),ex.getMessage());
+                Logger.getLogger(BusinessDelegate.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return order;
+    }
+    
+    public Order selectSalesOrder(int orderId){
+        List<OrderItem> listOrderItem = new ArrayList<OrderItem>();
+        Order salesOrder = new Order();
+        salesOrder.setOrderId(orderId);
+        Connection conn = new DBase(true).getConnection();
+        String sql = "";
+        if(conn!=null ){
+            try {
+                sql = "SELECT i.order_item_id, i.order_id, i.product_id, i.product_quantity, i.product_price, i.product_descount, i.product_total, i.order_item_status, o.client_id, o.order_date, o.description, o.order_status, o.session, o.ip, p.name "+
+                      "from sales_order_item i, product p, sales_order o "+
+                      "where p.product_id=i.product_id and o.order_id=i.order_id and o.order_id=?";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, orderId);
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    Order o = new Order();
+                    OrderItem i = new OrderItem();
+                    Product p = new Product();
+                    o.setOrderId(rs.getInt("order_id"));
+                    o.setOrderDate(rs.getTimestamp("order_date"));
+                    o.setDescription(rs.getString("description"));
+                    o.setOrderStatus(rs.getString("order_status"));
+                    o.setSession(rs.getString("session"));
+                    o.setIp(rs.getString("ip"));
+                    p.setProductId(rs.getInt("product_id"));
+                    p.setName(rs.getString("name"));
+                    i.setProduct(p);
+                    i.setProductQuantity(rs.getFloat("product_quantity"));
+                    i.setProductPrice(rs.getFloat("product_price"));
+                    i.setProductDescount(rs.getFloat("product_descount"));
+                    i.setProductTotal(rs.getFloat("product_total"));
+                    i.setOrderItemStatus(rs.getString("order_item_status"));
+                    i.setOrder(o);
+                    listOrderItem.add(i); // adicionando os itens do pedido na lista de itens
+                }
+                salesOrder.setItems(listOrderItem);
+                
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }    
+        return salesOrder;
+    }
+    
+    public int insertSalesOrderItem(OrderItem o){
+        Connection conn = new DBase(true).getConnection();
+        Order order = new Order();
+        int result=0;
+        if(conn!=null ){
+            try {
+                
+                String sql = "SELECT count(*) total, product_quantity from sales_order_item where order_id=? and product_id=?";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, o.getOrder().getOrderId());
+                ps.setInt(2, o.getProduct().getProductId());
+                ResultSet rs = ps.executeQuery();
+                int row=0;
+                float productQuantity=0.0f;
+                while(rs.next()){
+                    row = rs.getInt("total");
+                    productQuantity=rs.getFloat("product_quantity");
+                }
+                if(row==0){
+                sql = "INSERT INTO sales_order_item (order_id, product_id, product_quantity, product_price, product_descount, product_total, order_item_status) VALUES (?, ?, ?,?,?,?,?)";
+                ps = conn.prepareStatement(sql);
+                ps.setInt(1, o.getOrder().getOrderId());
+                ps.setInt(2, o.getProduct().getProductId());
+                ps.setFloat(3, o.getProductQuantity());
+                ps.setFloat(4,o.getProductPrice());
+                ps.setFloat(5, o.getProductDescount());
+                ps.setFloat(6, o.getProductTotal());
+                ps.setInt(7, 1); // new
+                result = ps.executeUpdate();
+                }else {
+                    // já possui o item cadastrado entao, atualiza a quantidade para mais 1
+                    o.setProductQuantity(o.getProductQuantity()+productQuantity);
+                    o.setProductTotal((o.getProductQuantity()*o.getProductPrice())-o.getProductDescount());
+                    sql = "UPDATE sales_order_item set product_quantity=?, product_price=?, product_descount=?, product_total=? where order_id=? and product_id=?";
+                    ps = conn.prepareStatement(sql);
+                    
+                    ps.setFloat(1, o.getProductQuantity());
+                    ps.setFloat(2,o.getProductPrice());
+                    ps.setFloat(3, o.getProductDescount());
+                    ps.setFloat(4, o.getProductTotal());
+                    ps.setInt(5, o.getOrder().getOrderId());
+                    ps.setInt(6, o.getProduct().getProductId());
+                    result = ps.executeUpdate();
+                    
+                }
+                conn.close();
+                
+            } catch (SQLException ex) {
+                br.com.itfox.utils.Logger.getLogger(ex, BusinessDelegate.class.getName(),ex.getMessage());
+                Logger.getLogger(BusinessDelegate.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return result;
+    }
+    
     public int insertEmailMktCart(EmailMktCart cart){
         Connection conn = new DBase(true).getConnection();
         int result=0;
