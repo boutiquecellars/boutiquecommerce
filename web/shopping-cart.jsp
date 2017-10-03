@@ -123,13 +123,13 @@
                 </div>
                 <div class="col-md-2">
                     <ul class="shopping-cart-total-list">
-                        <li><span>Subtotal</span><span>$2199</span>
+                        <li><span>Subtotal</span><span>$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></span>
                         </li>
                         <li><span>Shopping</span><span>Free</span>
                         </li>
                         <li><span>Taxes</span><span>$0</span>
                         </li>
-                        <li><span>Total</span><span>$2199</span>
+                        <li><span>Total</span><span>$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></span>
                         </li>
                     </ul><a class="btn btn-primary" href="#">Checkout</a>
                 </div>

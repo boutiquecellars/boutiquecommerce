@@ -3,7 +3,19 @@
     Created on : 21/05/2017, 22:40:24
     Author     : belchiorpalma
 --%>
-
+<%@page import="br.com.itfox.beans.OrderItem"%>
+<%@page import="java.util.List"%>
+<%@page import="br.com.itfox.beans.Order"%>
+<%
+        Order order = new Order();
+        String sessionId="";
+        if(session!=null){
+            order = (Order) session.getAttribute("order");
+            if(order!=null){
+                sessionId=order.getOrderId()+"";
+            }
+        }
+        %>
 <nav class="navbar navbar-default navbar-main-white navbar-pad-top navbar-first">
             <div class="container">
                 <div class="navbar-header">
@@ -60,50 +72,31 @@
                 <ul class="nav navbar-nav navbar-right navbar-mob-item-left">
                     <li><a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text"><span >Hello, Sign in</span>Your Account</a>
                     </li>
-                    <li class="dropdown"><a href="shopping-cart.html"><span >Your Cart</span><i class="fa fa-shopping-cart"></i> 3 Items</a>
+                    <li class="dropdown"><a href="shopping-cart.jsp"><span >Your Cart</span><i class="fa fa-shopping-cart"></i> 3 Items</a>
                         <ul class="dropdown-menu dropdown-menu-shipping-cart">
+                            <%
+                            if(order!=null){
+                                List<OrderItem> itens = order.getItems();
+                                if(itens!=null && itens.size()>0){
+                                    for(OrderItem i:itens){
+                                 %>
                             <li>
                                 <a class="dropdown-menu-shipping-cart-img" href="#">
-                                    <img src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
+                                    <img src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=i.getProduct().getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
                                 </a>
                                 <div class="dropdown-menu-shipping-cart-inner">
-                                    <p class="dropdown-menu-shipping-cart-price">$80</p>
-                                    <p class="dropdown-menu-shipping-cart-item"><a href="#">Gucci Patent Leather Open Toe Platform</a>
+                                    <p class="dropdown-menu-shipping-cart-price">$<%=i.getProductTotal() %></p>
+                                    <p class="dropdown-menu-shipping-cart-item"><a href="#"><% if(i.getProduct()!=null){out.print(i.getProduct().getName());} %></a>
                                     </p>
                                 </div>
                             </li>
+                            <%
+                                    }// fim for
+                                }// fim if itens nulos
+                            }// fim order nulo
+                            %>
                             <li>
-                                <a class="dropdown-menu-shipping-cart-img" href="#">
-                                    <img src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-                                </a>
-                                <div class="dropdown-menu-shipping-cart-inner">
-                                    <p class="dropdown-menu-shipping-cart-price">$53</p>
-                                    <p class="dropdown-menu-shipping-cart-item"><a href="#">Nikon D5200 24.1 MP Digital SLR Camera</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <a class="dropdown-menu-shipping-cart-img" href="#">
-                                    <img src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-                                </a>
-                                <div class="dropdown-menu-shipping-cart-inner">
-                                    <p class="dropdown-menu-shipping-cart-price">$59</p>
-                                    <p class="dropdown-menu-shipping-cart-item"><a href="#">Apple 11.6" MacBook Air Notebook </a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <a class="dropdown-menu-shipping-cart-img" href="#">
-                                    <img src="img/100x100.png" alt="Image Alternative text" title="Image Title" />
-                                </a>
-                                <div class="dropdown-menu-shipping-cart-inner">
-                                    <p class="dropdown-menu-shipping-cart-price">$30</p>
-                                    <p class="dropdown-menu-shipping-cart-item"><a href="#">Fossil Women's Original Boyfriend</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <p class="dropdown-menu-shipping-cart-total">Total: $150</p>
+                                <p class="dropdown-menu-shipping-cart-total">Total: $<% if(order!=null){out.print(order.getTotalSalesOrder());} %></p>
                                 <button class="dropdown-menu-shipping-cart-checkout btn btn-primary">Checkout</button>
                             </li>
                         </ul>

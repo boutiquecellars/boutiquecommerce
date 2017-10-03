@@ -21,6 +21,7 @@ public class Order {
     private String session;
     private String ip;
     private List<OrderItem> items;
+    private float totalSalesOrder;
 
     public int getOrderId() {
         return orderId;
@@ -89,6 +90,14 @@ public class Order {
 
     public void setItems(List<OrderItem> items) {
         this.items = items;
+    }
+
+    public float getTotalSalesOrder() {
+        return totalSalesOrder;
+    }
+
+    public void setTotalSalesOrder(float totalSalesOrder) {
+        this.totalSalesOrder = totalSalesOrder;
     }
     
     

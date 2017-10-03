@@ -130,6 +130,7 @@ public class BusinessDelegate {
         Order salesOrder = new Order();
         salesOrder.setOrderId(orderId);
         Connection conn = new DBase(true).getConnection();
+        float totalSalesOrder=0.0f;
         String sql = "";
         if(conn!=null ){
             try {
@@ -159,8 +160,10 @@ public class BusinessDelegate {
                     i.setOrderItemStatus(rs.getString("order_item_status"));
                     i.setOrder(o);
                     listOrderItem.add(i); // adicionando os itens do pedido na lista de itens
+                    totalSalesOrder+=rs.getFloat("product_total");
                 }
                 salesOrder.setItems(listOrderItem);
+                salesOrder.setTotalSalesOrder(totalSalesOrder);
                 
             }catch(Exception ex){
                 ex.printStackTrace();
