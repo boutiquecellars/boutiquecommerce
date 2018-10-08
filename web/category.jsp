@@ -10,7 +10,7 @@
 <html>
 
 <head>
-    <title>the box - Category layout 2</title>
+    <title>Boutique Cellars</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <meta name="keywords" content="Template, html, premium, themeforest" />
@@ -33,8 +33,10 @@
     <%
     String categoryTag = "";
     categoryTag = Security.getParameter(request.getParameter("category"));
+    
     BusinessDelegate bd = new BusinessDelegate();
     Category c = bd.selectCategory(categoryTag);
+    int categoryId = c.getCategoryId();
     %>
     <div class="global-wrapper clearfix" id="global-wrapper">
          <!-- include Navbar Static Top -->
@@ -86,13 +88,14 @@
                         <li class="active"><%=c.getCategory() %></li>
                     </ol>
                     <ul class="category-selections clearfix">
+                        <!--
                         <li>
                             <a class="fa fa-th-large category-selections-icon active" href="#"></a>
                         </li>
                         <li>
                             <a class="fa fa-th-list category-selections-icon" href="#"></a>
                         </li>
-                        <!--
+                        
                         <li><span class="category-selections-sign">Sort by :</span>
                             <select class="category-selections-select">
                                 <option selected>Newest First</option>
@@ -106,6 +109,7 @@
                             </select>
                         </li>
                         -->
+                        <!--
                         <li><span class="category-selections-sign">Items :</span>
                             <select class="category-selections-select">
                                 <option>9 / page</option>
@@ -113,7 +117,7 @@
                                 <option>18 / page</option>
                                 <option>All</option>
                             </select>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
             </div>
@@ -128,6 +132,8 @@
                 <!-- Inc Products -->
                 <jsp:include page="incProducts.jsp">
                     <jsp:param name="page" value="index" />
+                    <jsp:param name="categoryId" value="<%=categoryId%>" />
+                    <jsp:param name="limit" value="50" />
                 </jsp:include>
                 <!--// Inc Products -->
             </div>

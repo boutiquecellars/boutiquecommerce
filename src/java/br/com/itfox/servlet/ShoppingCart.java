@@ -51,12 +51,32 @@ public class ShoppingCart extends HttpServlet {
                     System.out.println("Inserido com sucesso");
                 }
     }
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         //variaveis
         String strProductId = (String) Security.getParameter(request.getParameter("ref"));
+        String strProductQuantity = (String) Security.getParameter(request.getParameter("quantity"));
+        String strOperation = (String) Security.getParameter(request.getParameter("operation"));
+        String strOrderItemId = (String) Security.getParameter(request.getParameter("itemId"));
         int productQuantity = 1;
+        int orderItemId=0;
+        if(strProductQuantity!=null){
+            try{
+            productQuantity = Utils.parseInt(strProductQuantity);
+            }catch(Exception ex){
+                productQuantity=1;
+            }
+        }
+        if(strOrderItemId!=null){
+            try{
+                orderItemId= Utils.parseInt(strOrderItemId);
+            }catch(Exception ex){
+                orderItemId=0;
+            }
+        }
+        
         Order order = new Order();
         BusinessDelegate bd = new BusinessDelegate();
         
@@ -82,8 +102,25 @@ public class ShoppingCart extends HttpServlet {
                 session.setAttribute("order", order);
             }else{
                 // ja tenho um pedido cadastrado
-                // inserindo os itens no pedido
-                this.insertItemOrder(bd, order, strProductId, productQuantity);
+                if(strOperation==null){
+                    strOperation="insert";
+                }
+                switch(strOperation){
+                    case "insert":
+                        // inserindo os itens no pedido
+                        this.insertItemOrder(bd, order, strProductId, productQuantity);
+                        break;
+                    case "update":
+                        break;
+                    case "delete":
+                        bd.deleteSalesOrderItem(orderItemId);
+                        break;
+                    default:
+                        this.insertItemOrder(bd, order, strProductId, productQuantity);
+                        break;
+                                
+                }
+                
                 // colocando na sessao os itens do pedido
                 order = bd.selectSalesOrder(order.getOrderId());
                 session.setAttribute("order", order);

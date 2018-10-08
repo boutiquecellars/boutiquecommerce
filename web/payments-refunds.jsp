@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <title>Delivery</title>
+    <title>Payments Refunds</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <meta name="keywords" content="Template, html, premium, themeforest" />
@@ -74,7 +74,7 @@
         %>
         <div class="container">
             <header class="page-header">
-                <h1 class="page-title">About Us</h1>
+                <h1 class="page-title">Payments Refunds</h1>
             </header>
             <div class="row">
                 <div class="col-md-9">

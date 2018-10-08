@@ -3,12 +3,15 @@
     Created on : 11/06/2017, 09:58:54
     Author     : belchiorpalma
 --%>
+<%@page import="br.com.itfox.utils.Utils"%>
 <%@page import="br.com.itfox.beans.Product"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.itfox.business.BusinessDelegate"%>
 <%
+String categoryId = (String) request.getParameter("categoryId");
+String limit = (String) request.getParameter("limit");
 BusinessDelegate bd = new BusinessDelegate();
-List<Product> listProducts = bd.selectProductsLight();
+List<Product> listProducts = bd.selectProductsLight(Utils.parseInt(categoryId), Utils.parseInt(limit));
 %>
 <%
                     int i=1;
@@ -27,10 +30,11 @@ List<Product> listProducts = bd.selectProductsLight();
                     <div class="product product-sm-left ">
                         <ul class="product-labels"></ul>
                         <div class="product-img-wrap">
-                            <img class="product-img" src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img" src="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=p.getNameReplaceAll(true)%>" alt="Image Alternative text" title="Image Title" />
                         </div>
-                        <a class="product-link" href="#"></a>
+                        <a class="product-link" href="product.jsp?wine=<%=p.getNameReplaceAll(false)%>&product_id=<%=p.getProductId() %>"></a>
                         <div class="product-caption">
+                            <!--
                             <ul class="product-caption-rating">
                                 <li class="rated"><i class="fa fa-star"></i>
                                 </li>
@@ -42,7 +46,7 @@ List<Product> listProducts = bd.selectProductsLight();
                                 </li>
                                 <li class="rated"><i class="fa fa-star"></i>
                                 </li>
-                            </ul>
+                            </ul>-->
                             <h5 class="product-caption-title"><%=p.getName() %></h5>
                             <div class="product-caption-price"><span class="product-caption-price-new">$<%=p.getPrice()%></span>
                             </div>

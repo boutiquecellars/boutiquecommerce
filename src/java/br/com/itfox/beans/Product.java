@@ -6,6 +6,7 @@
 package br.com.itfox.beans;
 
 import java.sql.Blob;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -24,6 +25,15 @@ public class Product {
     private Blob pic3;
     private Blob pic4;
     private Blob pic5;
+    private int brand;
+    private String varietal;
+    private String alcohol;
+    private String region;
+    private String year;
+    private String mevushal;
+    private int categoryId;
+    private Brand b;
+    private Category c;
     
     public Product(){}
 
@@ -52,6 +62,23 @@ public class Product {
 
     public String getName() {
         return name;
+    }
+    public String getNameReplaceAll(boolean extension){
+        if(name!=null){
+            try{
+            name = StringUtils.stripAccents(name);
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
+        
+        if(name!=null && extension){
+            return name.replaceAll(" ", "_").replaceAll("/", "_").replaceAll(",", "_").replaceAll("'", "").toLowerCase()+".png";
+        }else if(name!=null && extension==false){
+            return name.replaceAll(" ", "_").replaceAll("/", "_").replaceAll(",", "_").replaceAll("'", "").toLowerCase();
+        }else{
+            return "";
+        }
     }
 
     public void setName(String name) {
@@ -138,6 +165,78 @@ public class Product {
         this.pic5 = pic5;
     }
 
+    public int getBrand() {
+        return brand;
+    }
+
+    public void setBrand(int brand) {
+        this.brand = brand;
+    }
+
+    public String getVarietal() {
+        return varietal;
+    }
+
+    public void setVarietal(String varietal) {
+        this.varietal = varietal;
+    }
+
+    public String getAlcohol() {
+        return alcohol;
+    }
+
+    public void setAlcohol(String alcohol) {
+        this.alcohol = alcohol;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMevushal() {
+        return mevushal;
+    }
+
+    public void setMevushal(String mevushal) {
+        this.mevushal = mevushal;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public Brand getB() {
+        return b;
+    }
+
+    public void setB(Brand b) {
+        this.b = b;
+    }
+
+    public Category getC() {
+        return c;
+    }
+
+    public void setC(Category c) {
+        this.c = c;
+    }
+    
     
     
     

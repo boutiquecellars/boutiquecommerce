@@ -6,7 +6,7 @@
 <html>
 
 <head>
-    <title>the box - Product layout 2</title>
+    <title>Boutique Cellars</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <meta name="keywords" content="Template, html, premium, themeforest" />
@@ -87,8 +87,8 @@
                 <div class="col-md-6">
                     <div class="product-page-product-wrap jqzoom-stage jqzoom-stage-lg">
                         <div class="clearfix">
-                            <a href="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" id="jqzoom" data-rel="gal-1">
-                                <img src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
+                            <a href="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=p.getNameReplaceAll(true)%>" id="jqzoom" data-rel="gal-1">
+                                <img src="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=p.getNameReplaceAll(true)%>" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>
                     </div>
@@ -124,6 +124,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="_box-highlight">
+                        <!--
                         <ul class="product-page-product-rating">
                             <li class="rated"><i class="fa fa-star"></i>
                             </li>
@@ -136,12 +137,22 @@
                             <li class="rated"><i class="fa fa-star"></i>
                             </li>
                         </ul>
+                        
                         <p class="product-page-product-rating-sign"><a href="#">238 customer reviews</a>
-                        </p>
+                        </p>-->
+                        <p><%=p.getB().getBrand() %></p>
                         <h1><%=p.getName()%></h1>
+                        <p><%=p.getC().getCategory() %></p>
                         <p class="product-page-price">$<%=p.getPrice()%></p>
                         <p class="text-muted text-sm">Free Shipping</p>
+                        <p><%=p.getYear() %></p>
+                        <p><%=p.getVarietal() %></p>
+                        <p><%=p.getRegion() %></p>
+                        <p><%=p.getAlcohol() %></p>
+                        <p><%=p.getMevushal() %></p>
+                        <!--
                         <p class="product-page-desc-lg"><%=Utils.blobToString(p.getDescription()) %></p>
+                        -->
                         <!--
                         <ul class="product-page-option-list">
                             <li class="clearfix">
@@ -167,13 +178,15 @@
                         <ul class="product-page-actions-list">
                             <li class="product-page-qty-item">
                                 <button class="product-page-qty product-page-qty-minus">-</button>
-                                <input class="product-page-qty product-page-qty-input" type="text" value="1" />
+                                <input class="product-page-qty product-page-qty-input" type="number" value="1" id="quantity" />
                                 <button class="product-page-qty product-page-qty-plus">+</button>
                             </li>
-                            <li><a class="btn btn-lg btn-primary" href="ShoppingCart?product=<%=p.getName()%>&ref=<%=p.getProductId()%>"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
+                            <li><a class="btn btn-lg btn-primary" onclick="addCart()" id="add-cart"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
                             </li>
+                            <!--
                             <li><a class="btn btn-lg btn-default" href="#"><i class="fa fa-star"></i>Wishlist</a>
-                            </li>
+                            
+                            </li>-->
                         </ul>
                         <div class="gap gap-small"></div>
                     </div>
@@ -184,16 +197,16 @@
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#tab-1" data-toggle="tab">Description</a>
                     </li>
+                    <!--
                     <li><a href="#tab-2" data-toggle="tab">Additional Information</a>
                     </li>
                     <li><a href="#tab-3" data-toggle="tab">Rating and Reviews</a>
                     </li>
+                    -->
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="tab-1">
-                        <p>Imperdiet fusce viverra mollis taciti lectus scelerisque augue quisque felis posuere nulla facilisis scelerisque pharetra quisque dignissim elit diam nisi penatibus magnis dapibus pretium lacinia torquent convallis egestas posuere
-                            etiam</p>
-                        <p>Aliquam posuere duis a fringilla enim dictum tortor accumsan litora</p>
+                        <%=Utils.blobToString(p.getDescription()) %>
                     </div>
                     <div class="tab-pane fade" id="tab-2">
                         <table class="table">
@@ -361,6 +374,8 @@
             <!-- include Related Products -->
             <jsp:include page="incRelatedProducts.jsp">
                 <jsp:param name="page" value="index" />
+                <jsp:param name="limit" value="16" />
+                <jsp:param name="categoryId" value="<%=p.getCategoryId() %>" />
             </jsp:include>
             <!-- // include Related Products -->
             
@@ -391,6 +406,13 @@
     <script src="js/magnific.js"></script>
     <script src="js/custom.js"></script>
 
+    <script>
+        function addCart(){
+            
+            var url="ShoppingCart?product=<%=p.getNameReplaceAll(false)%>&ref=<%=p.getProductId()%>&quantity="+$("#quantity").val();
+            window.location.replace(url);
+        }
+        </script>
 
 
 

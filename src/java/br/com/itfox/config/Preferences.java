@@ -12,9 +12,9 @@ import java.math.RoundingMode;
  * @author belchiorpalma
  */
 public class Preferences {
-    private static final String USER="itfox";//"quest"
-    private static final String PASS="ITFOX@1";//"www.quest.com.br@1"
-    private static final String DATABASE="jdbc:mysql://104.155.239.197:3306/boutiquecellars?generateSimpleParameterMetadata=true"; //201.30.93.1
+    private static final String USER="itfox";
+    private static final String PASS="ITFOX@1";
+    private static final String DATABASE="jdbc:mysql://104.155.239.197:3306/boutiquecellars?generateSimpleParameterMetadata=true"; 
     public static final String copyright="<strong>Copyright</strong> BOUTIQUE CELLARS";
     public static final String copyrightYear="© 2016";
     public static final String title="BOUTIQUE CELLARS";

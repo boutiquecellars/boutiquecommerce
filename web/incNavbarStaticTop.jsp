@@ -10,9 +10,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav navbar-nav navbar-right navbar-right-no-mar">
-                            <li><a href="#">About Us</a>
+                            <li><a href="about-us.jsp">About Us</a>
                             </li>
-                            <li><a href="#">Contact Us</a>
+                            <li><a href="contact-us.jsp">Contact Us</a>
                             </li>
                         </ul>
                     </div>

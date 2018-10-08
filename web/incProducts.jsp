@@ -3,12 +3,18 @@
     Created on : 06/06/2017, 00:07:56
     Author     : belchiorpalma
 --%>
+<%@page import="br.com.itfox.utils.Utils"%>
 <%@page import="br.com.itfox.beans.Product"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.itfox.business.BusinessDelegate"%>
 <%
 BusinessDelegate bd = new BusinessDelegate();
-List<Product> listProducts = bd.selectProductsLight();
+String categoryId = (String) request.getParameter("categoryId");
+String limit = (String) request.getParameter("limit");
+
+
+
+List<Product> listProducts = bd.selectProductsLight(Utils.parseInt(categoryId), Utils.parseInt(limit));
 %>
 <div class="col-md-9">
                    <%
@@ -27,14 +33,15 @@ List<Product> listProducts = bd.selectProductsLight();
                         <div class="col-md-4">
                             <div class="product ">
                                 <ul class="product-labels">
-                                    <li>hot</li>
+                                    <!-- <li>hot</li> -->
                                 </ul>
                                 <div class="product-img-wrap">
-                                    <img class="product-img-primary" src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
-                                    <img class="product-img-alt" src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
+                                    <img class="product-img-primary" src="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=p.getNameReplaceAll(true)%>" alt="Image Alternative text" title="Image Title" />
+                                    <img class="product-img-alt" src="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=p.getNameReplaceAll(true)%>" alt="Image Alternative text" title="Image Title" />
                                 </div>
-                                <a class="product-link" href="product.jsp?wine=<%=p.getName().replaceAll(" ", "_").toLowerCase()%>&product_id=<%=p.getProductId() %>"></a>
+                                <a class="product-link" href="product.jsp?wine=<%=p.getNameReplaceAll(false)%>&product_id=<%=p.getProductId() %>"></a>
                                 <div class="product-caption">
+                                    <!--
                                     <ul class="product-caption-rating">
                                         <li class="rated"><i class="fa fa-star"></i>
                                         </li>
@@ -46,9 +53,9 @@ List<Product> listProducts = bd.selectProductsLight();
                                         </li>
                                         <li><i class="fa fa-star"></i>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                     <h5 class="product-caption-title"><%=p.getName() %></h5>
-                                    <div class="product-caption-price"><span class="product-caption-price-new">$147</span>
+                                    <div class="product-caption-price"><span class="product-caption-price-new">$<%=p.getPrice() %></span>
                                     </div>
                                     <ul class="product-caption-feature-list">
                                         <li>Free Shipping</li>

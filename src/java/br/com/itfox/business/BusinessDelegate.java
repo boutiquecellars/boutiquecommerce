@@ -6,6 +6,7 @@
 package br.com.itfox.business;
 
 import br.com.itfox.beans.AreaOper;
+import br.com.itfox.beans.Brand;
 import br.com.itfox.beans.Category;
 import br.com.itfox.beans.Client;
 import br.com.itfox.beans.CollectionColumns;
@@ -153,6 +154,7 @@ public class BusinessDelegate {
                     p.setProductId(rs.getInt("product_id"));
                     p.setName(rs.getString("name"));
                     i.setProduct(p);
+                    i.setOrderItemId(rs.getInt("order_item_id"));
                     i.setProductQuantity(rs.getFloat("product_quantity"));
                     i.setProductPrice(rs.getFloat("product_price"));
                     i.setProductDescount(rs.getFloat("product_descount"));
@@ -217,6 +219,27 @@ public class BusinessDelegate {
                     result = ps.executeUpdate();
                     
                 }
+                conn.close();
+                
+            } catch (SQLException ex) {
+                br.com.itfox.utils.Logger.getLogger(ex, BusinessDelegate.class.getName(),ex.getMessage());
+                Logger.getLogger(BusinessDelegate.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return result;
+    }
+    
+    // remover o item
+    public int deleteSalesOrderItem(int itemId){
+        Connection conn = new DBase(true).getConnection();
+        int result=0;
+        if(conn!=null && itemId>0){
+            try {
+                String sql = "DELETE FROM sales_order_item WHERE order_item_id=? limit 1";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, itemId );
+                result = ps.executeUpdate();
+                
                 conn.close();
                 
             } catch (SQLException ex) {
@@ -1110,6 +1133,44 @@ public class BusinessDelegate {
         return products;
     }
     
+    public List<Product> selectProductsLight(int categoryId,int limit){
+        Connection conn = new DBase(true).getConnection();
+        List<Product> products = new ArrayList<Product>();
+        
+        if(conn!=null){
+            try {
+                String sql = "SELECT p.PRODUCT_ID, p.NAME, p.PRICE, p.DESCRIPTION, p.META_TAG_TITLE, p.META_TAG_DESCRIPTION, p.META_TAG_KEYWORDS  FROM product p where p.category_id=? ORDER BY NAME LIMIT ? ";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, categoryId);
+                ps.setInt(2, limit);
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    Product p = new Product();
+                    p.setProductId(rs.getInt("PRODUCT_ID"));
+                    p.setName(rs.getString("NAME"));
+                    p.setPrice(rs.getFloat("PRICE"));
+                    p.setDescription(rs.getBlob("DESCRIPTION"));
+                    p.setMetaTagTitle(rs.getString("META_TAG_TITLE"));
+                    p.setMetaTagDescription(rs.getString("META_TAG_DESCRIPTION"));
+                    p.setMetaTagKeywords(rs.getString("META_TAG_KEYWORDS"));
+                   // p.setPic1(rs.getBlob("PIC1"));
+                   // p.setPic2(rs.getBlob("PIC2"));
+                   // p.setPic3(rs.getBlob("PIC3"));
+                   // p.setPic4(rs.getBlob("PIC4"));
+                   // p.setPic5(rs.getBlob("PIC5"));
+                    
+                    products.add(p);
+                }
+                conn.close();
+                
+            } catch (SQLException ex) {
+                br.com.itfox.utils.Logger.getLogger(ex, BusinessDelegate.class.getName(),ex.getMessage());
+                Logger.getLogger(BusinessDelegate.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return products;
+    }
+    
     public List<Product> selectProductsCarousel(){
         Connection conn = new DBase(true).getConnection();
         List<Product> products = new ArrayList<Product>();
@@ -1145,7 +1206,61 @@ public class BusinessDelegate {
         }
         return products;
     }
-    
+    public Product selectProduct(int productId){
+        Connection conn = new DBase(true).getConnection();
+        Product p = new Product();
+        
+        if(conn!=null){
+            try {
+                String sql = "SELECT p.PRODUCT_ID, p.NAME, p.PRICE, p.DESCRIPTION, p.META_TAG_TITLE, p.META_TAG_DESCRIPTION, p.META_TAG_KEYWORDS, p.BRAND brand_id, p.CATEGORY_ID, p.VARIETAL, p.ALCOHOOL, p.REGION, p.YEAR, p.MEVUSHAL, b.brand, c.category, c.category_tag, c.description, c.image1  FROM product p, brand b, category c WHERE p.brand=b.brand_id and p.category_id=c.category_id and p.PRODUCT_ID=? ORDER BY p.NAME";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, productId);
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    Brand b = new Brand();
+                    b.setBrandId(rs.getInt("BRAND_ID"));
+                    b.setBrand(rs.getString("BRAND"));
+                    p.setB(b);
+                    
+                    Category c = new Category();
+                    c.setCategoryId(rs.getInt("CATEGORY_ID"));
+                    c.setCategory(rs.getString("CATEGORY"));
+                    c.setCategoryTag(rs.getString("CATEGORY_TAG"));
+                    c.setDescription(rs.getString("DESCRIPTION"));
+                    c.setImage1(rs.getString("IMAGE1"));
+                    p.setC(c);
+                    
+                    p.setProductId(rs.getInt("PRODUCT_ID"));
+                    p.setName(rs.getString("NAME"));
+                    p.setPrice(rs.getFloat("PRICE"));
+                    p.setDescription(rs.getBlob("DESCRIPTION"));
+                    p.setMetaTagTitle(rs.getString("META_TAG_TITLE"));
+                    p.setMetaTagDescription(rs.getString("META_TAG_DESCRIPTION"));
+                    p.setMetaTagKeywords(rs.getString("META_TAG_KEYWORDS"));
+                    //p.setPic1(rs.getBlob("PIC1"));
+                   // p.setPic2(rs.getBlob("PIC2"));
+                   // p.setPic3(rs.getBlob("PIC3"));
+                   // p.setPic4(rs.getBlob("PIC4"));
+                   // p.setPic5(rs.getBlob("PIC5"));
+                    p.setBrand(rs.getInt("BRAND_ID"));
+                    p.setCategoryId(rs.getInt("CATEGORY_ID"));
+                    p.setVarietal(rs.getString("VARIETAL"));
+                    p.setAlcohol(rs.getString("ALCOHOOL"));
+                    p.setYear(rs.getString("YEAR"));
+                    p.setMevushal(rs.getString("MEVUSHAL"));
+                    p.setRegion(rs.getString("REGION"));
+                    
+                }
+                conn.close();
+                
+            } catch (SQLException ex) {
+                br.com.itfox.utils.Logger.getLogger(ex, BusinessDelegate.class.getName(),ex.getMessage());
+                Logger.getLogger(BusinessDelegate.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return p;
+    }
+    /*
     public Product selectProduct(int productId){
         Connection conn = new DBase(true).getConnection();
         Product p = new Product();
@@ -1181,7 +1296,7 @@ public class BusinessDelegate {
             }
         }
         return p;
-    }
+    }*/
     
     
     
@@ -3535,7 +3650,7 @@ public class BusinessDelegate {
     }
      
      public List<Category> selectCategories(){
-        Category c = new Category();
+        
         List<Category> list = new ArrayList<Category>();
         try{
                 Connection conn = new DBase(true).getConnection();
@@ -3545,9 +3660,11 @@ public class BusinessDelegate {
                // statement.setString(1, categoryTag);
                 ResultSet  rs = statement.executeQuery();
                  while(rs.next()){
+                     Category c = new Category();
                      c.setCategoryId(rs.getInt("CATEGORY_ID"));
                      c.setCategory(rs.getString("CATEGORY"));
                      c.setDescription(rs.getString("DESCRIPTION"));
+                     c.setCategoryTag(rs.getString("CATEGORY_TAG"));
                      c.setImage1(rs.getString("IMAGE1"));
                      list.add(c);
                 }

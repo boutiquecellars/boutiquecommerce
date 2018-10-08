@@ -791,9 +791,9 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" class="navbar-item-top">Shipping</a>
+                        <li><a href="shipping.jsp" class="navbar-item-top">Shipping</a>
                         </li>
-                        <li><a href="#" class="navbar-item-top">Payment</a>
+                        <li><a href="payments-refunds.jsp" class="navbar-item-top">Payment</a>
                         </li>
                         <!--
                         <li><a href="#" class="navbar-item-top">Customer Support</a>

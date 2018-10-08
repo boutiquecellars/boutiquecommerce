@@ -21,10 +21,10 @@ List<Product> listProducts = bd.selectProductsLight();
                     <div class="product ">
                         <ul class="product-labels"></ul>
                         <div class="product-img-wrap">
-                            <img class="product-img-primary" src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
-                            <img class="product-img-alt" src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=p.getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-primary" src="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=p.getNameReplaceAll(true)%>" alt="Image Alternative text" title="Image Title" />
+                            <img class="product-img-alt" src="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=p.getNameReplaceAll(true)%>" alt="Image Alternative text" title="Image Title" />
                         </div>
-                        <a class="product-link" href="product.jsp?wine=<%=p.getName().replaceAll(" ", "_").toLowerCase()%>&product_id=<%=p.getProductId()%>"><%=p.getName()%> </a>
+                        <a class="product-link" href="product.jsp?wine=<%=p.getNameReplaceAll(false)%>&product_id=<%=p.getProductId()%>"><%=p.getName()%> </a>
                         <div class="product-caption">
                             <ul class="product-caption-rating">
                                 <li class="rated"><i class="fa fa-star"></i>

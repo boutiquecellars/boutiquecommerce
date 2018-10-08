@@ -70,19 +70,25 @@
                     <a class="fa fa-search navbar-main-search-submit" href="#"></a>
                 </form>-->
                 <ul class="nav navbar-nav navbar-right navbar-mob-item-left">
+                    <!--
                     <li><a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text"><span >Hello, Sign in</span>Your Account</a>
                     </li>
-                    <li class="dropdown"><a href="shopping-cart.jsp"><span >Your Cart</span><i class="fa fa-shopping-cart"></i> 3 Items</a>
-                        <ul class="dropdown-menu dropdown-menu-shipping-cart">
-                            <%
-                            if(order!=null){
+                    -->
+                    <%
+                         if(order!=null){
                                 List<OrderItem> itens = order.getItems();
                                 if(itens!=null && itens.size()>0){
+                    %>
+                    <li class="dropdown"><a href="shopping-cart.jsp"><span >Your Cart</span><i class="fa fa-shopping-cart"></i> <%=itens.size()%> Items</a>
+                        <ul class="dropdown-menu dropdown-menu-shipping-cart">
+                            <%
+                           
+                                
                                     for(OrderItem i:itens){
                                  %>
                             <li>
                                 <a class="dropdown-menu-shipping-cart-img" href="#">
-                                    <img src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=i.getProduct().getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
+                                    <img src="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=i.getProduct().getNameReplaceAll(true)%>" alt="Image Alternative text" title="Image Title" />
                                 </a>
                                 <div class="dropdown-menu-shipping-cart-inner">
                                     <p class="dropdown-menu-shipping-cart-price">$<%=i.getProductTotal() %></p>
@@ -92,15 +98,18 @@
                             </li>
                             <%
                                     }// fim for
-                                }// fim if itens nulos
-                            }// fim order nulo
+                                
                             %>
                             <li>
                                 <p class="dropdown-menu-shipping-cart-total">Total: $<% if(order!=null){out.print(order.getTotalSalesOrder());} %></p>
-                                <button class="dropdown-menu-shipping-cart-checkout btn btn-primary">Checkout</button>
+                                <button class="dropdown-menu-shipping-cart-checkout btn btn-primary" onclick="checkout()">Checkout</button>
                             </li>
                         </ul>
                     </li>
+                    <%
+                        }// fim if itens nulos
+                    }// fim order nulo
+                    %>
                     <div class="navbar-header">
                         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-nav-collapse" area_expanded="false"><span class="sr-only">Main Menu</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                         </button>
@@ -108,3 +117,8 @@
                 </ul>
             </div>
         </nav>
+                    <script>
+                        function checkout(){
+                            window.location.replace("checkout.jsp");
+                        }
+                        </script>

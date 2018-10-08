@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <title>the box - Shopping cart</title>
+    <title>BoutiqueCellars - Shopping cart</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <meta name="keywords" content="Template, html, premium, themeforest" />
@@ -81,7 +81,7 @@
                                 <th>Title</th>
                                 
                                 <th>Price</th>
-                                <th>Quality</th>
+                                <th>Quantity</th>
                                 <th>Total</th>
                                 <th>Remove</th>
                             </tr>
@@ -96,7 +96,7 @@
                                  <tr>
                                 <td class="table-shopping-cart-img">
                                     <a href="#">
-                                        <img src="http://boutiquecellars.com/img/wine/boutique_cellars_<%=i.getProduct().getName().replaceAll(" ", "_").toLowerCase()+".png"%>" alt="Image Alternative text" title="Image Title" />
+                                        <img src="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=i.getProduct().getNameReplaceAll(true)%>" alt="Image Alternative text" title="Image Title" />
                                     </a>
                                 </td>
                                 <td class="table-shopping-cart-title"><a href="#"><% if(i.getProduct()!=null){out.print(i.getProduct().getName());} %></a>
@@ -108,7 +108,7 @@
                                 </td>
                                 <td>$<%=i.getProductTotal() %></td>
                                 <td>
-                                    <a class="fa fa-close table-shopping-remove" href="#"></a>
+                                    <a class="fa fa-close table-shopping-remove" href="ShoppingCart?product=<%=i.getProduct().getNameReplaceAll(true)%>&ref=<%=i.getProduct().getProductId() %>&itemId=<%=i.getOrderItemId() %>&operation=delete"></a>
                                 </td>
                             </tr>
                                  <%
@@ -131,7 +131,8 @@
                         </li>
                         <li><span>Total</span><span>$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></span>
                         </li>
-                    </ul><a class="btn btn-primary" href="#">Checkout</a>
+                    </ul><a class="btn btn-primary" href="checkout.jsp">Checkout</a>
+                    
                 </div>
             </div>
             <ul class="list-inline">

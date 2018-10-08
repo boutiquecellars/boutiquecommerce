@@ -61,17 +61,17 @@
                     </div>
                 </div>
                 <ul class="main-footer-links-list">
-                    <li><a href="#">About Us</a>
+                    <li><a href="about-us.jsp">About Us</a>
                     </li>
-                    <li><a href="#">Support & Customer Service</a>
+                    <li><a href="support-customer-service.jsp">Support & Customer Service</a>
                     </li>
-                    <li><a href="#">Privacy</a>
+                    <li><a href="privacy-policy.jsp">Privacy</a>
                     </li>
-                    <li><a href="#">Terms</a>
+                    <li><a href="terms.jsp">Terms</a>
                     </li>
-                    <li><a href="#">Shipping</a>
+                    <li><a href="shipping.jsp">Shipping</a>
                     </li>
-                    <li><a href="#">Payments & Refunds</a>
+                    <li><a href="payments-refunds.jsp">Payments & Refunds</a>
                     </li>
                 </ul>
                 <img class="main-footer-img" src="" alt="" title="Image Title" />

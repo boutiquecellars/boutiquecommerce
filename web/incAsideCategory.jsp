@@ -18,7 +18,7 @@
                                 %>
                                 
                                 
-                                <li><a href="#"><%=c.getCategory() %></a>
+                                <li><a href="category.jsp?category=<%=c.getCategoryTag() %>"><%=c.getCategory() %></a>
                                 </li>
                                 <%
                                 }
@@ -27,11 +27,12 @@
                                
                             </ul>
                         </div>
+                       <!--
                         <div class="category-filters-section">
                             <h3 class="widget-title-sm">Price</h3>
                             <input type="text" id="price-slider" />
                         </div>
-                        <!--
+                        
                         <div class="category-filters-section">
                             <h3 class="widget-title-sm">Shoe Size</h3>
                             <div class="checkbox">
@@ -84,6 +85,7 @@
                             </div>
                         </div>
                         -->
+                        <!--
                         <div class="category-filters-section">
                             <h3 class="widget-title-sm">Brand</h3>
                             <div class="checkbox">
@@ -163,5 +165,6 @@
                                 </label>
                             </div>
                         </div>
+                        -->
                     </aside>
                 </div>
