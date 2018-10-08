@@ -418,7 +418,7 @@ hr {
 }
 .navbar-main-white .navbar-main-search-submit:hover {
   background: #486d97;
-  color: whtie;
+  color: white;
 }
 .navbar-first {
   z-index: 11;
@@ -963,7 +963,7 @@ hr {
 .main-footer > .container {
   position: relative;
   background-color: white;
-  heght: 230px!important;
+  height: 230px!important;
   color: #777;
   padding: 36px 36px 0 36px !important
 }
@@ -2346,10 +2346,11 @@ header.main {
     display: -ms-box;
     display: -webkit-flex;
   }
+  /*
  {
     display: box;
     display: flex;
-  }
+  }*/
 }
 /****** End of Rows/Columns ******/
 /****** Product ******/
@@ -3453,7 +3454,7 @@ header.main {
 .product-rate-list-count {
   float: left;
   width: 10%;
-  text-alighn: right;
+  text-align: right;
   padding-left: 7px;
   height: 26px;
   line-height: 26px;
@@ -4291,7 +4292,7 @@ header.main {
   -webkit-border-radius: 0;
   border-radius: 0;
   width: 44px;
-  broder-color: #999;
+  border-color: #999;
   border-width: 2px;
 }
 .checkbox-switch .i-check:before,
