@@ -77,9 +77,9 @@
         <header class="page-header page-header-banner" style="background-image:url(<% if(c!=null){out.print(c.getImage1());}%>);">
             <div class="container">
                 <div class="page-header-banner-inner">
-                    <h1 class="page-title">Categories</h1>
+                    <h1 class="page-title"><%=c.getCategory() %></h1>
                     <ol class="breadcrumb page-breadcrumb">
-                        <li><a href="#">Home</a>
+                        <li><a href="/index.jsp">Home</a>
                         </li>
                        <!-- <li><a href="#">Clothes &amp; Shoes</a>
                         </li>
