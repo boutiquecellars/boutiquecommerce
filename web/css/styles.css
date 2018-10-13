@@ -1279,7 +1279,7 @@ hr {
 .owl-carousel .owl-item .slider-item-img {
   width: 43%!important;
   -webkit-filter: drop-shadow(1px 1px 10px rgba(0,0,0,0.3));
-  top:50%!important 
+  top:50%
  }
 .slider-item-img-left,
 .slider-item-img-right,
