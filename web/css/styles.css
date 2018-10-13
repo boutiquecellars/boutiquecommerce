@@ -3996,7 +3996,7 @@ header.main {
 @media (max-width:420px) {
  .banner {
   color: #fff;
-  height: 188px;
+  height: 110px;
   position: relative;
   -webkit-border-radius: 6px;
   border-radius:50%;
@@ -4005,7 +4005,7 @@ header.main {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  width:180px;
+  width:110px;
   float:left;
   margin-left:62px;
   margin-bottom:15px;
