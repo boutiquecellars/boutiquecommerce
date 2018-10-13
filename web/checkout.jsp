@@ -131,16 +131,61 @@
                     <h3 class="widget-title">Billng Details</h3>
                     <form>
                         <div class="form-group">
-                            <label>First &amp; Last Name</label>
-                            <input class="form-control" type="text" name="name" id="name"/>
+                            <label>First </label>
+                            <input class="form-control" type="text" name="first-name" id="first-name"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input class="form-control" type="text" name="last-name" id="last-name"/>
                         </div>
                         <div class="form-group">
                             <label>E-mail</label>
                             <input class="form-control" type="text" name="email" id="email" />
                         </div>
                         <div class="form-group">
+                            <label>Confirm E-mail</label>
+                            <input class="form-control" type="email" name="email-confirm" id="email-confirm" />
+                        </div>
+                        <div class="form-group">
                             <label>Phone Number</label>
                             <input class="form-control" type="text" name="tel" id="tel" />
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth* (dd/mm/yyyy)</label>
+                            <input class="form-control" type="date" name="date-birth" id="date-birth" />
+                        </div>
+                        <div class="form-group">
+                            <label>Company name</label>
+                            <input class="form-control" type="text" name="company-name" id="company-name" />
+                        </div>
+                        <div class="form-group">
+                            <label>Street address 1</label>
+                            <input class="form-control" type="text" name="address-street-1" id="address-street-1" />
+                        </div>
+                        <div class="form-group">
+                            <label>Street address 2</label>
+                            <input class="form-control" type="text" name="address-street-2" id="address-street-2" />
+                        </div>
+                        <div class="form-group">
+                            <label>Suburb</label>
+                            <input class="form-control" type="text" name="suburb" id="suburb" />
+                        </div>
+                        <div class="form-group">
+                            <label>Post Code</label>
+                            <input class="form-control" type="text" name="post-code" id="post-code" />
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            <select class="form-control" type="select" name="state" id="state" >
+                                <option value="NSW">NSW</option>
+                                <option value="VIC">VIC</option>
+                                <option value="QLD">QLD</option>
+                                <option value="ACT">ACT</option>
+                                <option value="WA">WA</option>
+                                <option value="SA">SA</option>
+                                <option value="TAS">TAS</option>
+                                <option value="NT">NT</option>
+                            </select>
                         </div>
                         <div class="checkbox">
                             <label>
