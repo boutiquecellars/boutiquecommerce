@@ -263,7 +263,7 @@
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input class="i-check" type="checkbox" id="create-account-checkbox" />Create TheBox Profile</label>
+                                <input class="i-check" type="checkbox" id="create-account-checkbox" />Create Profile</label>
                         </div>
                         <div id="create-account" class="hide">
                             <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
