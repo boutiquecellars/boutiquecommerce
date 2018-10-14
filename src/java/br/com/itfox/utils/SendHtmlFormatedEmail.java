@@ -83,7 +83,7 @@ public class SendHtmlFormatedEmail {
             "We will e-mail you an update as soon as your order is processed.\n<br/>" +
             "\n<br/>" +
             "Boutique Cellars team\n"+
-             "\n<br/><br/><img src='http://boutiquecellars.com/img/logo-boutiquecellars.svg'/> \n" +
+             "\n<br/><br/><img src='http://boutiquecellars.com/img/logoemail.jpg'/> \n" +
              orderDetails
              );
              
