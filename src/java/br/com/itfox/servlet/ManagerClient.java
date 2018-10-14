@@ -7,6 +7,7 @@ package br.com.itfox.servlet;
 
 import br.com.itfox.beans.Client;
 import br.com.itfox.beans.Product;
+import br.com.itfox.utils.SendHtmlFormatedEmail;
 import br.com.itfox.business.BusinessDelegate;
 import br.com.itfox.utils.Utils;
 import java.io.IOException;
@@ -34,8 +35,10 @@ public class ManagerClient extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String name = request.getParameter("name");
+        String name = request.getParameter("firstName");
         String email = request.getParameter("email");
+        String orderDetails = request.getParameter("orderDetails");
+        String orderNumber = request.getParameter("orderNumber");
        
         String clientId = request.getParameter("id");
         String operation = request.getParameter("operation");
@@ -55,7 +58,12 @@ public class ManagerClient extends HttpServlet {
            
             int result = 0;
             if(operation !=null && !operation.isEmpty() && operation!="" && operation.equalsIgnoreCase("insert")){
+                
                 result= new BusinessDelegate().insertClient(c);
+                if(result >0){
+                    SendHtmlFormatedEmail s = new SendHtmlFormatedEmail();
+                    s.sendingHtml(orderDetails, orderNumber, name, email);
+                }
             }else if(operation !=null && !operation.isEmpty() && operation!="" && operation.equalsIgnoreCase("update")){
                 result = new BusinessDelegate().updateClient(c);
             }else if(operation !=null && !operation.isEmpty() && operation!="" && operation.equalsIgnoreCase("delete")){
