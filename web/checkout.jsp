@@ -131,7 +131,7 @@
                     <h3 class="widget-title">Billng Details</h3>
                     <form>
                         <div class="form-group">
-                            <label>First </label>
+                            <label>First Name</label>
                             <input class="form-control" type="text" name="first-name" id="first-name"/>
                         </div>
                         <div class="form-group">
@@ -170,10 +170,7 @@
                             <label>Suburb</label>
                             <input class="form-control" type="text" name="address-suburb-1" id="address-suburb-1" />
                         </div>
-                        <div class="form-group">
-                            <label>Post Code</label>
-                            <input class="form-control" type="text" name="address-post-code-1" id="address-post-code-1" />
-                        </div>
+                        
                         <div class="form-group">
                             <label>State</label>
                             <select class="form-control" type="select" name="address-state-1" id="address-state-1" >
@@ -201,7 +198,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Zip/Postal</label>
+                                    <label>Post Code</label>
                                     <input class="form-control" type="text" name="address-postal-1" id="address-postal-1" />
                                 </div>
                             </div>
@@ -226,7 +223,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Zip/Postal</label>
+                                        <label>Post Code</label>
                                         <input class="form-control" type="text" name="shipping-postal" id="shipping-postal" />
                                     </div>
                                 </div>
@@ -247,10 +244,7 @@
                                 <label>Suburb</label>
                                 <input class="form-control" type="text" name="address-suburb-2" id="address-suburb-2" />
                             </div>
-                            <div class="form-group">
-                                <label>Post Code</label>
-                                <input class="form-control" type="text" name="address-post-code-2" id="address-post-code-2" />
-                            </div>
+                            
                             <div class="form-group">
                             <label>State</label>
                             <select class="form-control" type="select" name="address-state-2" id="address-state-2" >
@@ -263,6 +257,24 @@
                                 <option value="TAS">TAS</option>
                                 <option value="NT">NT</option>
                             </select>
+                        </div>
+                             <div class="form-group">
+                            <label>Country</label>
+                            <input class="form-control" type="text" name="address-country-1" id="address-country-2" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input class="form-control" type="text" name="address-city-1" id="address-city-2" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Post Code</label>
+                                    <input class="form-control" type="text" name="address-postal-1" id="address-postal-2" />
+                                </div>
+                            </div>
                         </div>
                         </div>
                         <div class="checkbox">
