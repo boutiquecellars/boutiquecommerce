@@ -160,23 +160,23 @@
                         </div>
                         <div class="form-group">
                             <label>Street address 1</label>
-                            <input class="form-control" type="text" name="address-street-1" id="address-street-1" />
+                            <input class="form-control" type="text" name="address-street-11" id="address-street-11" />
                         </div>
                         <div class="form-group">
                             <label>Street address 2</label>
-                            <input class="form-control" type="text" name="address-street-2" id="address-street-2" />
+                            <input class="form-control" type="text" name="address-street-12" id="address-street-12" />
                         </div>
                         <div class="form-group">
                             <label>Suburb</label>
-                            <input class="form-control" type="text" name="suburb" id="suburb" />
+                            <input class="form-control" type="text" name="address-suburb-1" id="address-suburb-1" />
                         </div>
                         <div class="form-group">
                             <label>Post Code</label>
-                            <input class="form-control" type="text" name="post-code" id="post-code" />
+                            <input class="form-control" type="text" name="address-post-code-1" id="address-post-code-1" />
                         </div>
                         <div class="form-group">
                             <label>State</label>
-                            <select class="form-control" type="select" name="state" id="state" >
+                            <select class="form-control" type="select" name="address-state-1" id="address-state-1" >
                                 <option value="NSW">NSW</option>
                                 <option value="VIC">VIC</option>
                                 <option value="QLD">QLD</option>
@@ -187,44 +187,27 @@
                                 <option value="NT">NT</option>
                             </select>
                         </div>
-                        <div class="checkbox">
-                            <label>
-                                <input class="i-check" type="checkbox" id="create-account-checkbox" />Create TheBox Profile</label>
-                        </div>
-                        <div id="create-account" class="hide">
-                            <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input class="form-control" type="password" name="pass" id="pass"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Repeat Password</label>
-                                <input class="form-control" type="password" name="pass2" id="pass2"/>
-                            </div>
-                            <hr />
-                        </div>
+                        
                         <div class="form-group">
                             <label>Country</label>
-                            <input class="form-control" type="text" name="country" id="country" />
+                            <input class="form-control" type="text" name="address-country-1" id="address-country-1" />
                         </div>
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="form-group">
                                     <label>City</label>
-                                    <input class="form-control" type="text" name="city" id="city" />
+                                    <input class="form-control" type="text" name="address-city-1" id="address-city-1" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Zip/Postal</label>
-                                    <input class="form-control" type="text" name="postal" id="postal" />
+                                    <input class="form-control" type="text" name="address-postal-1" id="address-postal-1" />
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input class="form-control" type="text" name="address" id="address" />
-                        </div>
+                       
+                        
                         <div class="checkbox">
                             <label>
                                 <input class="i-check" type="checkbox" id="shipping-address-checkbox" />Ship to a Different Address</label>
@@ -249,9 +232,54 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Shipping Address</label>
-                                <input class="form-control" type="text" name="shipping-address" id="shipping-address" />
+                                <label>Company Name</label>
+                                <input class="form-control" type="text" name="company-name-2" id="company-name-2" />
                             </div>
+                            <div class="form-group">
+                                <label>Street Address 1</label>
+                                <input class="form-control" type="text" name="address-street-21" id="address-street-21" />
+                            </div>
+                            <div class="form-group">
+                                <label>Street Address 2</label>
+                                <input class="form-control" type="text" name="address-street-22" id="address-street-22" />
+                            </div>
+                            <div class="form-group">
+                                <label>Suburb</label>
+                                <input class="form-control" type="text" name="address-suburb-2" id="address-suburb-2" />
+                            </div>
+                            <div class="form-group">
+                                <label>Post Code</label>
+                                <input class="form-control" type="text" name="address-post-code-2" id="address-post-code-2" />
+                            </div>
+                            <div class="form-group">
+                            <label>State</label>
+                            <select class="form-control" type="select" name="address-state-2" id="address-state-2" >
+                                <option value="NSW">NSW</option>
+                                <option value="VIC">VIC</option>
+                                <option value="QLD">QLD</option>
+                                <option value="ACT">ACT</option>
+                                <option value="WA">WA</option>
+                                <option value="SA">SA</option>
+                                <option value="TAS">TAS</option>
+                                <option value="NT">NT</option>
+                            </select>
+                        </div>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input class="i-check" type="checkbox" id="create-account-checkbox" />Create TheBox Profile</label>
+                        </div>
+                        <div id="create-account" class="hide">
+                            <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" type="password" name="pass" id="pass"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Repeat Password</label>
+                                <input class="form-control" type="password" name="pass2" id="pass2"/>
+                            </div>
+                            <hr />
                         </div>
                     </form>
                 </div>
