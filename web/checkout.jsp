@@ -72,7 +72,7 @@
             }
         }
         %>
-        <div class="container">
+        <div class="container" id="container">
             <header class="page-header">
                 <h1 class="page-title">Checkout Order</h1>
             </header>
@@ -93,6 +93,9 @@
                                 
                             <%
                             if(order!=null){
+                                %>
+                            <input type="hidden" id="order" name="order" value="<%=order.getOrderId()%>"/>
+                                <%
                                 List<OrderItem> itens = order.getItems();
                                 if(itens!=null && itens.size()>0){
                                     for(OrderItem i:itens){
@@ -359,13 +362,16 @@
             $(".eway-button").hide();
         });
         function proceedPayment(){
-            var name = $("#name").val();
+            var firstName = $("#first-name").val();
+            var lastName = $("#last-name").val();
             var email = $("#email").val();
             var tel = $("#tel").val();
+            var orderNumber = $("#order").val();
+            var orderDetails = $("#container").html();
             
             var error=0;
             
-            if(name==null || name.length<3){
+            if(firstName==null || firstName.length<3){
                 alert("Please, Fill Name");
                 $("#name").focus();
                 error++;
@@ -380,6 +386,9 @@
             }
             
             if(error==0){
+                // gravando no banco e enviando email 
+                sendClient(firstName,lastName,email,orderDetails, orderNumber);
+                //
                 $("#eway-paynow-button").attr("data-email",email);
                 $("#eway-paynow-button").attr("data-phone",tel);
                 $("#eway-paynow-button").attr("data-cardname","12345678");
@@ -390,6 +399,38 @@
                 $(".proceed-payment").hide();
             }
         }
+        
+        function sendClient(firstName,lastName,email,orderDetails,orderNumber){
+        var url="ManagerClient?";
+        $.ajax({
+            url: encodeURI(url),
+            async: true,
+            data:{firstName:firstName,lastName:lastName,email:email,orderDetails:orderDetails,orderNumber:orderNumber,operation:"insert"},
+            dataType: "json",
+            beforeSend: function() {
+                $('#loading').modal('show');
+                //$("#loading-text").html(" cálculo de pontos .. ");
+                //checkProgress("progressRanking", "calculateIndicatorsPoints");
+            },
+            success: function(data) {
+                // Do stuff...
+                // exibindo os dados na tela
+                //$("#web-guide-ajax").html(data);
+                document.getElementById("web-guide-ajax").innerHTML = data;
+
+
+
+            },
+            complete: function() {
+
+                $('#loading').modal('hide');
+                //window.location.replace("IndicatorsApproval");
+                // executando o calculo de filtros depois calculando o ranking
+                //console.log("executando os filtros de indicadores");
+                //$("#loading-text").html(" cálculo de filtros de indicadores .. ");
+                //calculateFiltersIndicatorsApproval();
+            }});
+    }
     </script>
 
 
