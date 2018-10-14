@@ -81,12 +81,12 @@
                 <div class="col-md-4">
                     <h3 class="widget-title">Order Info</h3>
                     <div class="box">
-                        <table class="table">
+                        <table class="table" style="width:322px;height:100%">
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>QTY</th>
-                                    <th>Price</th>
+                                    <th style="width:212px">Product</th>
+                                    <th style="width:55px">QTY</th>
+                                    <th style="width:55px">Price</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,7 +100,7 @@
                                 if(itens!=null && itens.size()>0){
                                     for(OrderItem i:itens){
                                  %>
-                                <tr>
+                                 <tr style="line-height:20px;">
                                     <td><% if(i.getProduct()!=null){out.print(i.getProduct().getName());} %></td>
                                     <td><%=i.getProductQuantity() %></td>
                                     <td>$<%=i.getProductTotal() %></td>
@@ -264,6 +264,7 @@
                              
                         
                         </div>
+                        <!--
                         <div class="checkbox">
                             <label>
                                 <input class="i-check" type="checkbox" id="create-account-checkbox" />Create Profile</label>
@@ -280,6 +281,7 @@
                             </div>
                             <hr />
                         </div>
+                        -->
                     </form>
                 </div>
                 <div class="col-md-4">
@@ -367,7 +369,7 @@
             var email = $("#email").val();
             var tel = $("#tel").val();
             var orderNumber = $("#order").val();
-            var orderDetails = $("#container").html();
+            var orderDetails = $(".table").html();
             
             var error=0;
             
