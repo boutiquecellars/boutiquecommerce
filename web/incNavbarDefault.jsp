@@ -779,16 +779,18 @@
                             </ul>
                         </li>
                         -->
+                        <!--
                         <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=wineries">Wineries</a>
-                        </li>
+                        </li>-->
                         <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=red-wines">Red Wines</a>
                         </li>
                         <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=white-wines">White Wines</a>
                         </li>
                         <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=rose-wines">Rose Wines</a>
                         </li>
+                        <!--
                         <li class="dropdown"><a class="navbar-item-top" href="category.jsp?category=awards">Awards</a>
-                        </li>
+                        </li>-->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="shipping.jsp" class="navbar-item-top">Shipping</a>
