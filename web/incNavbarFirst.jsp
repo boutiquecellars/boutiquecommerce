@@ -91,7 +91,7 @@
                                     <img src="http://boutiquecellars.com/wine/imgs/boutique_cellars_<%=i.getProduct().getNameReplaceAll(true)%>" alt="Image Alternative text" title="Image Title" />
                                 </a>
                                 <div class="dropdown-menu-shipping-cart-inner">
-                                    <p class="dropdown-menu-shipping-cart-price">$<%=i.getProductTotal() %></p>
+                                    <p class="dropdown-menu-shipping-cart-price">AUD$<%=i.getProductTotal() %></p>
                                     <p class="dropdown-menu-shipping-cart-item"><a href="#"><% if(i.getProduct()!=null){out.print(i.getProduct().getName());} %></a>
                                     </p>
                                 </div>
@@ -101,7 +101,7 @@
                                 
                             %>
                             <li>
-                                <p class="dropdown-menu-shipping-cart-total">Total: $<% if(order!=null){out.print(order.getTotalSalesOrder());} %></p>
+                                <p class="dropdown-menu-shipping-cart-total">Total: AUD$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></p>
                                 <button class="dropdown-menu-shipping-cart-checkout btn btn-primary" onclick="checkout()">Checkout</button>
                             </li>
                         </ul>

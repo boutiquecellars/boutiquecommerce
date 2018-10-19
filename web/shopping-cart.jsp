@@ -1,3 +1,4 @@
+<%@page import="br.com.itfox.utils.Utils"%>
 <%@page import="br.com.itfox.beans.OrderItem"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.itfox.beans.Order"%>
@@ -70,7 +71,8 @@
         %>
         <div class="container">
             <header class="page-header">
-                <h1 class="page-title">My Shopping Bag <%=sessionId%></h1>
+                <h1 class="page-title">My Shopping Bag </h1>
+                <p><span class="small">ALL TRANSACTIONS ARE PROCESSED IN AUSTRALIAN DOLLARS</span></p>
             </header>
             <div class="row">
                 <div class="col-md-10">
@@ -102,11 +104,11 @@
                                 <td class="table-shopping-cart-title"><a href="#"><% if(i.getProduct()!=null){out.print(i.getProduct().getName());} %></a>
                                 </td>
                                 
-                                <td>$<% out.print(i.getProductPrice()); %></td>
+                                <td>AUD$<% out.print(i.getProductPrice()); %></td>
                                 <td>
                                     <input class="form-control table-shopping-qty" type="text" value="<%=i.getProductQuantity() %>" />
                                 </td>
-                                <td>$<%=i.getProductTotal() %></td>
+                                <td>AUD$<%=i.getProductTotal() %></td>
                                 <td>
                                     <a class="fa fa-close table-shopping-remove" href="ShoppingCart?product=<%=i.getProduct().getNameReplaceAll(true)%>&ref=<%=i.getProduct().getProductId() %>&itemId=<%=i.getOrderItemId() %>&operation=delete"></a>
                                 </td>
@@ -123,13 +125,13 @@
                 </div>
                 <div class="col-md-2">
                     <ul class="shopping-cart-total-list">
-                        <li><span>Subtotal</span><span>$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></span>
+                        <li><span>Subtotal</span><span>AUD$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></span>
                         </li>
                         <li><span>Shopping</span><span>Free</span>
                         </li>
-                        <li><span>Taxes</span><span>$0</span>
+                        <li><span>Taxes GST</span><span>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()*0.1));} %></span>
                         </li>
-                        <li><span>Total</span><span>$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></span>
+                        <li><span>Total</span><span>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()*1.1));} %></span>
                         </li>
                     </ul><a class="btn btn-primary" href="checkout.jsp">Checkout</a>
                     
@@ -138,8 +140,9 @@
             <ul class="list-inline">
                 <li><a class="btn btn-default" href="index.jsp">Continue Shopping</a>
                 </li>
+                <!--
                 <li><a class="btn btn-default" href="#">Update Bag</a>
-                </li>
+                </li>-->
             </ul>
         </div>
         <div class="gap"></div>

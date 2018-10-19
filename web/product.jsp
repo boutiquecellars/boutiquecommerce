@@ -143,7 +143,7 @@
                         <p><%=p.getB().getBrand() %></p>
                         <h1><%=p.getName()%></h1>
                         <p><%=p.getC().getCategory() %></p>
-                        <p class="product-page-price">$<%=p.getPrice()%></p>
+                        <p class="product-page-price">AUD$<%=p.getPrice()%></p>
                         <p class="text-muted text-sm">Free Shipping</p>
                         <p><%=p.getYear() %></p>
                         <p><%=p.getVarietal() %></p>

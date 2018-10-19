@@ -1,3 +1,4 @@
+<%@page import="br.com.itfox.utils.Utils"%>
 <%@page import="br.com.itfox.beans.OrderItem"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.itfox.beans.Order"%>
@@ -76,7 +77,10 @@
             <header class="page-header">
                 <h1 class="page-title">Checkout Order</h1>
             </header>
-            <p class="checkout-login-text">Sign in or Register to your TheBox profile to faster order checkout.</p>
+            <p class="checkout-login-text">Sign in or Register to faster order checkout. 
+                <span class="small"><br/>ALL TRANSACTIONS ARE PROCESSED IN AUSTRALIAN DOLLARS</span>
+            </p>
+            
             <div class="row row-col-gap" data-gutter="60">
                 <div class="col-md-4">
                     <h3 class="widget-title">Order Info</h3>
@@ -103,7 +107,7 @@
                                  <tr style="line-height:20px;">
                                     <td><% if(i.getProduct()!=null){out.print(i.getProduct().getName());} %></td>
                                     <td><%=i.getProductQuantity() %></td>
-                                    <td>$<%=i.getProductTotal() %></td>
+                                    <td>AUD$<%=i.getProductTotal() %></td>
                                 </tr>
                                 <%
                                     }// fim for
@@ -114,17 +118,22 @@
                                 <tr>
                                     <td>Subtotal</td>
                                     <td></td>
-                                    <td>$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></td>
+                                    <td>AUD$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></td>
                                 </tr>
                                 <tr>
                                     <td>Shipping</td>
                                     <td></td>
-                                    <td>$0</td>
+                                    <td>AUD$0</td>
+                                </tr>
+                                <tr>
+                                    <td>Taxes GST</td>
+                                    <td></td>
+                                    <td>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()*0.1));} %></td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>
                                     <td></td>
-                                    <td>$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></td>
+                                    <td>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()*1.1));} %></td>
                                 </tr>
                             </tbody>
                         </table>

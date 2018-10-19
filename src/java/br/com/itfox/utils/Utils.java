@@ -240,6 +240,22 @@ public class Utils {
         
     }
     
+    public static String formatDecimal(double val){
+        String s = "";
+        try{
+        DecimalFormat df = (DecimalFormat) DecimalFormat.getInstance(new Locale("en", "EN"));
+        df.setMaximumFractionDigits(Preferences.MAXIMUM_FRACTION_DIGITS);
+        df.setMinimumFractionDigits(Preferences.MINIMUM_FRACTION_DIGITS);
+        df.setMinimumIntegerDigits(Preferences.MIMIMUM_INTEGER_DIGITS);
+        df.setRoundingMode(Preferences.ROUNDING_MODE);
+        s = String.valueOf(df.format(val));
+        }catch(Exception ex){
+             br.com.itfox.utils.Logger.getLogger(ex, Utils.class.getName()+"***"+val+"***",ex.getMessage());
+        }
+        return s;
+        
+    }
+    
      public static String encodeURIComponent(String url) {
          String result = "";
         try {
