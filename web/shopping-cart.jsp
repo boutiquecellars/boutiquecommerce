@@ -125,13 +125,13 @@
                 </div>
                 <div class="col-md-2">
                     <ul class="shopping-cart-total-list">
-                        <li><span>Subtotal</span><span>AUD$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></span>
+                        <li><span>Subtotal</span><span>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()/1.1));} %></span>
                         </li>
-                        <li><span>Shopping</span><span>Free</span>
+                        <li><span>Shipping</span><span>Free</span>
                         </li>
-                        <li><span>Taxes GST</span><span>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()*0.1));} %></span>
+                        <li><span>GST</span><span>AUD$<% if(order!=null){out.print(Utils.formatDecimal((order.getTotalSalesOrder()/1.1)*0.1));} %></span>
                         </li>
-                        <li><span>Total</span><span>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()*1.1));} %></span>
+                        <li><span>Total</span><span>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()));} %></span>
                         </li>
                     </ul><a class="btn btn-primary" href="checkout.jsp">Checkout</a>
                     

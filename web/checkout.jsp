@@ -22,6 +22,28 @@
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/mystyles.css">
+    
+    <!-- itfox -->
+    <!--
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css"/>
+    -->
+    <!--
+    <script   src="http://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+    -->
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-1.7-development-only.js"></script>
+    <!--
+    <script   src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
+    -->
+    <!--
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  -->
+  
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- // itfox -->
+    
     <style>
         .eway-button{
             display:none;
@@ -118,7 +140,7 @@
                                 <tr>
                                     <td>Subtotal</td>
                                     <td></td>
-                                    <td>AUD$<% if(order!=null){out.print(order.getTotalSalesOrder());} %></td>
+                                    <td>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()/1.1));} %></td>
                                 </tr>
                                 <tr>
                                     <td>Shipping</td>
@@ -126,14 +148,14 @@
                                     <td>AUD$0</td>
                                 </tr>
                                 <tr>
-                                    <td>Taxes GST</td>
+                                    <td>GST</td>
                                     <td></td>
-                                    <td>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()*0.1));} %></td>
+                                    <td>AUD$<% if(order!=null){out.print(Utils.formatDecimal((order.getTotalSalesOrder()/1.1)*0.1));} %></td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>
                                     <td></td>
-                                    <td>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()*1.1));} %></td>
+                                    <td>AUD$<% if(order!=null){out.print(Utils.formatDecimal(order.getTotalSalesOrder()));} %></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -163,7 +185,7 @@
                             <input class="form-control" type="text" name="tel" id="tel" />
                         </div>
                         <div class="form-group">
-                            <label>Date of Birth* (dd/mm/yyyy)</label>
+                            <label>Date of Birth* (dd/mm/yyyy)<span class="small"><br/>To confirm you are over the age of 18</span></label>
                             <input class="form-control" type="date" name="date-birth" id="date-birth" />
                         </div>
                         <div class="form-group">
@@ -371,6 +393,9 @@
     <script>
         $( document ).ready(function() {
             $(".eway-button").hide();
+            if ( $('[type="date"]').prop('type') != 'date' ) {
+                $('[type="date"]').datepicker();
+            }
         });
         function proceedPayment(){
             var firstName = $("#first-name").val();
@@ -379,6 +404,7 @@
             var tel = $("#tel").val();
             var orderNumber = $("#order").val();
             var orderDetails = $(".table").html();
+            var dateBirth = $("#date-birth").val();
             
             var error=0;
             
@@ -393,6 +419,10 @@
             }else if(tel==null || tel.length<3){
                 alert("Please, Fill Phone");
                 $("#phone").focus();
+                error++;
+            }else if(dateBirth==null || getAge(dateBirth)<18){
+                alert("You must be over 18 years old");
+                $("#date-birth").focus();
                 error++;
             }
             
@@ -442,8 +472,20 @@
                 //calculateFiltersIndicatorsApproval();
             }});
     }
+    function getAge(birthday) {
+        const millis = Date.now() - Date.parse(birthday);
+        return new Date(millis).getFullYear() - 1970;
+    }
     </script>
 
+    <script type="text/javascript">
+        $(function(){
+            if(!Modernizr.inputtypes.date) {
+                console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
+                $("#date-birth").datepicker();
+            }
+        });
+    </script>
 
 
 
