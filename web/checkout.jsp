@@ -206,6 +206,11 @@
                         </div>
                         
                         <div class="form-group">
+                            <label>Post Code</label>
+                            <input class="form-control" type="text" name="address-postal-1" id="address-postal-1" />
+                        </div>
+                        
+                        <div class="form-group">
                             <label>State</label>
                             <select class="form-control" type="select" name="address-state-1" id="address-state-1" >
                                 <option value="NSW">NSW</option>
@@ -220,15 +225,7 @@
                         </div>
                         
                         
-                        <div class="row">
-                           
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Post Code</label>
-                                    <input class="form-control" type="text" name="address-postal-1" id="address-postal-1" />
-                                </div>
-                            </div>
-                        </div>
+                        
                        
                         
                         <div class="checkbox">
@@ -237,15 +234,7 @@
                         </div>
                         <div id="shipping-address" class="hide">
                             
-                            <div class="row">
-                                
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Post Code</label>
-                                        <input class="form-control" type="text" name="shipping-postal" id="shipping-postal" />
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <div class="form-group">
                                 <label>Company Name</label>
                                 <input class="form-control" type="text" name="company-name-2" id="company-name-2" />
@@ -261,6 +250,15 @@
                             <div class="form-group">
                                 <label>Suburb</label>
                                 <input class="form-control" type="text" name="address-suburb-2" id="address-suburb-2" />
+                            </div>
+                             <div class="row">
+                                
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Post Code</label>
+                                        <input class="form-control" type="text" name="shipping-postal" id="shipping-postal" />
+                                    </div>
+                                </div>
                             </div>
                             
                             <div class="form-group">
