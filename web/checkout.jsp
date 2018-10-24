@@ -129,7 +129,7 @@
                                  <tr style="line-height:20px;">
                                     <td><% if(i.getProduct()!=null){out.print(i.getProduct().getName());} %></td>
                                     <td><%=i.getProductQuantity() %></td>
-                                    <td>AUD$<%=i.getProductTotal() %></td>
+                                    <td>AUD$<%=Utils.formatDecimal(i.getProductTotal()) %></td>
                                 </tr>
                                 <%
                                     }// fim for
@@ -162,7 +162,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h3 class="widget-title">Billng Details</h3>
+                    <h3 class="widget-title">Billing Details</h3>
                     <form>
                         <div class="form-group">
                             <label>First Name</label>

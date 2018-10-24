@@ -39,7 +39,7 @@ List<Product> listProducts = bd.selectProductsLight();
                                 </li>
                             </ul>
                             <h5 class="product-caption-title"><%=p.getName()%></h5>
-                            <div class="product-caption-price"><span class="product-caption-price-new">AUD$<%=p.getPrice()%></span>
+                            <div class="product-caption-price"><span class="product-caption-price-new">AUD$<%=Utils.formatDecimal(p.getPrice())%></span>
                             </div>
                             <ul class="product-caption-feature-list">
                                 <li>Free Shipping</li>

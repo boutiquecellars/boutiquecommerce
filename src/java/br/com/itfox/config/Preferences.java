@@ -23,9 +23,9 @@ public class Preferences {
     public static final String SECURITY_KEY="www.itfox.com.br.security.key-";//CONSTANT
     public static final float COMBINE_LIMIT = 0.03f;
     public static final int BOLETIM_TOP_LIMIT = 5;
-    public static final int MAXIMUM_FRACTION_DIGITS=1;
-    public static final int MINIMUM_FRACTION_DIGITS=1;
-    public static final int MIMIMUM_INTEGER_DIGITS=1;
+    public static final int MAXIMUM_FRACTION_DIGITS=2;
+    public static final int MINIMUM_FRACTION_DIGITS=2;
+    public static final int MIMIMUM_INTEGER_DIGITS=2;
     public static final RoundingMode ROUNDING_MODE = RoundingMode.HALF_UP;
 
     public static String getUSER() {

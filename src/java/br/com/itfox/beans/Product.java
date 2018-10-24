@@ -5,6 +5,7 @@
  */
 package br.com.itfox.beans;
 
+import br.com.itfox.utils.Utils;
 import java.sql.Blob;
 import org.apache.commons.lang3.StringUtils;
 
