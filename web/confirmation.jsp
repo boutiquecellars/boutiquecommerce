@@ -335,7 +335,6 @@
                     data-invoicedescription="Boutique Cellars - Wine"
                     data-email=""
                     data-phone=""
-                    data-cardnumber=""
                     data-resulturl="http://www.eway.com.au/shared-demo/results.aspx"
                     data-allowedit="true" >
                   </script> 

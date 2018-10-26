@@ -335,7 +335,6 @@
                     data-invoicedescription="Boutique Cellars - Wine"
                     data-email=""
                     data-phone=""
-                    data-cardnumber=""
                     data-resulturl="confirmation.jsp"
                     data-allowedit="true" >
                   </script> 
@@ -415,7 +414,7 @@
                 //
                 $("#eway-paynow-button").attr("data-email",email);
                 $("#eway-paynow-button").attr("data-phone",tel);
-                $("#eway-paynow-button").attr("data-cardname","12345678");
+                //$("#eway-paynow-button").attr("data-cardname","12345678");
 
 
                 $(".eway-button").show();
@@ -462,12 +461,12 @@
     </script>
 
     <script type="text/javascript">
-        $(function(){
+       /* $(function(){
             if(!Modernizr.inputtypes.date) {
                 console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
                 $("#date-birth").datepicker();
             }
-        });
+        });*/
     </script>
 
 

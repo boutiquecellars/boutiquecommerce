@@ -35,6 +35,7 @@ public class ManagerClient extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
         String name = request.getParameter("firstName");
         String email = request.getParameter("email");
         String orderDetails = request.getParameter("orderDetails");
@@ -74,12 +75,20 @@ public class ManagerClient extends HttpServlet {
                 //session.setAttribute("userid", m.getEmail());
                 //out.println("welcome " + userid);
                 //out.println("<a href='logout.jsp'>Log out</a>");
-                response.sendRedirect("clients.jsp?msg=success");
+               // response.sendRedirect("clients.jsp?msg=success");
+               out.print("Sucesso");
             } else {
-                response.sendRedirect("clients.jsp?msg=error");
+                //response.sendRedirect("clients.jsp?msg=error");
+                out.print("Erro");
             }
         }else{
+            out.print("nulo");
             response.sendRedirect("clients.jsp?msg=null");
+        }
+        try{
+            out.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
         }
     }
 
