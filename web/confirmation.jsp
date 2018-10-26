@@ -97,7 +97,7 @@
         %>
         <div class="container" id="container">
             <header class="page-header">
-                <h1 class="page-title">Checkout Order</h1>
+                <h1 class="page-title">Checkout Order - https://api.ewaypayments.com/Transaction/InvoiceRef/INV-<%if(session!=null){out.print(sessionId);}%></h1>
             </header>
             <p class="checkout-login-text">Sign in or Register to faster order checkout. 
                 <span class="small"><br/>ALL TRANSACTIONS ARE PROCESSED IN AUSTRALIAN DOLLARS</span>
@@ -336,7 +336,7 @@
                     data-email=""
                     data-phone=""
                     data-cardnumber=""
-                    data-resulturl="confirmation.jsp"
+                    data-resulturl="http://www.eway.com.au/shared-demo/results.aspx"
                     data-allowedit="true" >
                   </script> 
                   
