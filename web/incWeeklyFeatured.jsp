@@ -3,6 +3,7 @@
     Created on : 23/05/2017, 10:38:22
     Author     : belchiorpalma
 --%>
+<%@page import="br.com.itfox.utils.Utils"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.itfox.beans.Product"%>
 <%@page import="br.com.itfox.business.BusinessDelegate"%>
