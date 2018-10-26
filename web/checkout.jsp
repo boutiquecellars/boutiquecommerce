@@ -335,7 +335,7 @@
                     data-invoicedescription="Boutique Cellars - Wine"
                     data-email=""
                     data-phone=""
-                    data-resulturl="confirmation.jsp"
+                    data-resulturl="http://www.boutiquecellars.com/confirmation.jsp"
                     data-allowedit="true" >
                   </script> 
                   
@@ -375,9 +375,9 @@
     <script>
         $( document ).ready(function() {
             $(".eway-button").hide();
-            if ( $('[type="date"]').prop('type') != 'date' ) {
+           /* if ( $('[type="date"]').prop('type') != 'date' ) {
                 $('[type="date"]').datepicker();
-            }
+            }*/
         });
         function proceedPayment(){
             var firstName = $("#first-name").val();
