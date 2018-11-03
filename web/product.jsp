@@ -145,7 +145,7 @@
                         <p><%=p.getC().getCategory() %></p>
                         <p class="product-page-price">AUD$<%=Utils.formatDecimal(p.getPrice())%></p>
                         <p class="text-muted text-sm">Free Shipping</p>
-                        <p><%=p.getYear() %></p>
+                        <p>Year: <%=p.getYear() %></p>
                         <p><%=p.getVarietal() %></p>
                         <p><%=p.getRegion() %></p>
                         <p><%=p.getAlcohol() %></p>
