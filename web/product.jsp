@@ -145,11 +145,11 @@
                         <p><%=p.getC().getCategory() %></p>
                         <p class="product-page-price">AUD$<%=Utils.formatDecimal(p.getPrice())%></p>
                         <p class="text-muted text-sm">Free Shipping</p>
-                        <p><%=p.getYear() %></p>
-                        <p><%=p.getVarietal() %></p>
-                        <p><%=p.getRegion() %></p>
-                        <p><%=p.getAlcohol() %></p>
-                        <p><%=p.getMevushal() %></p>
+                        <p>Year:<%=p.getYear() %></p>
+                        <p>Varietal:<%=p.getVarietal() %></p>
+                        <p>Region:<%=p.getRegion() %></p>
+                        <p>Alcohol:<%=p.getAlcohol() %></p>
+                        <p>Type:<%=p.getMevushal() %></p>
                         <!--
                         <p class="product-page-desc-lg"><%=Utils.blobToString(p.getDescription()) %></p>
                         -->
