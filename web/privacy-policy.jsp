@@ -87,10 +87,21 @@
                         <br/><br/>From time to time, we may also collect non-personal information from our customers. Sales history and purchase preference data, for example, that helps us in our ongoing efforts to improve our website and to make informed decisions when providing information on items you may wish to know about. 
 
                     </p>
-                    <h2></h2>
-                    <p class="gap gap-small"></p>
-                    <p class="gap gap-small"></p>
-                    <p class="gap gap-small"></p>
+                    <h2>How do we collect the information?</h2>
+                    <p class="gap gap-small">More often than not the information will come directly from you. If, however, someone purchases you a gift for example, your information may become available to us from a third party. We will always ensure that the source of your information is indicated clearly in our customer list so you can confirm how we collected it if required. If your information is collected in this fashion we will confirm with you whether you want to receive any additional information from us, promotional or otherwise.
+</p>
+                <h2>Disclosure of personal information.</h2>
+                    <p class="gap gap-small">We only use or disclose information about our customers in ways they would reasonably expect. This means we only use information to process your order or to improve our website and offers. At this time we do not partner with or have special relationships with any ad server companies or third parties and therefore do not pass off your particulars to any ad server companies or to third parties.
+</p>
+<h2>Security Policy.</h2>
+                    <p class="gap gap-small">When purchasing from Boutique Cellars, card details are transmitted through a secure server using eWay?s electronic payment gateway. Card data is not hosted or stored in any way by Boutique Cellars after processing.
+</p>
+<h2>Accessing personal information & complaints.</h2>
+<p class="gap gap-small">
+    Boutique Cellars understands that it is important that our customers be able to access their personal information. Access requests can be made by emailing us at bci.wines@gmail.com.
+    <br/><br/>If you require clarification on specific topics regarding your information, have a concern, a complaint or a suggestion on how we can improve this area of our service, please contact us as soon as possible by phoning emailing us at bci.wines@gmail.com.
+
+</p>
                 </div>
             </div>
             
