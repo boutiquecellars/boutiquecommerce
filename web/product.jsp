@@ -142,7 +142,7 @@
                         </p>-->
                         <p><%=p.getB().getBrand() %></p>
                         <h1><%=p.getName()%></h1>
-                        <p><%=p.getC().getCategory() %></p>
+                        <!--<p><%=p.getC().getCategory() %></p>-->
                         <p class="product-page-price">AUD$<%=Utils.formatDecimal(p.getPrice())%></p>
                         <p class="text-muted text-sm">Free Shipping</p>
                         <p>Year:<%=p.getYear() %></p>
